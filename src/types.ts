@@ -76,4 +76,24 @@ export type ProjectContent = {
   reflection: string;
   visuals?: ProjectVisual[];
   experiment?: ExperimentPlan;
+  portfolio?: {
+    projectType: string;
+    targetUser: string;
+    deploymentNote: string;
+    links: { live: string; backup: string; github: string };
+    heroAlt: string;
+    problemInsight: {
+      intro: string;
+      problems: string[];
+      summary: string;
+      visuals: { label: string; alt: string }[];
+    };
+    coreStrategy: { title: string; text: string }[];
+    strategyLine: string;
+    prototypeIntro: string;
+    prototype: { label: string; title: string; text: string; alt: string }[];
+    validationIntro: string;
+    metrics: string[];
+    cta: { title: string; text: string };
+  };
 };

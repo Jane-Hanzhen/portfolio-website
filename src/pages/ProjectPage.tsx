@@ -39,6 +39,78 @@ function VisualGroup({ assets = [], project, start, captionBefore = false }: { a
   );
 }
 
+function QwenImage({ asset, alt, className = "" }: { asset: ProjectAsset; alt: string; className?: string }) {
+  return (
+    <figure className={`qwen-image ${className}`.trim()}>
+      <div className="qwen-image__chrome" aria-hidden="true"><i /><i /><i /></div>
+      <img src={asset.src} width={asset.width} height={asset.height} alt={alt} loading="lazy" />
+    </figure>
+  );
+}
+
+function QwenPortfolioPage({ project, config, assets, next, nextSlug, t }: { project: ProjectContent; config: typeof projectConfig.qwen; assets: (typeof projectAssets)["qwen"]; next: ProjectContent; nextSlug: string; t: ReturnType<typeof useTranslation>["t"] }) {
+  const content = project.portfolio!;
+  const gallery = assets.gallery!;
+  return (
+    <main id="main-content" className="case-study case-study--qwen qwen-portfolio">
+      <section className="project-hero section-shell">
+        <div className="project-hero__eyebrow"><Link to="/">{t("common.backHome")}</Link><span>{project.number}</span></div>
+        <div className="project-hero__title-row">
+          <div><ul className="tag-list" aria-label="Project tags">{project.tags.map((tag) => <li key={tag}>{tag}</li>)}</ul><h1>{project.title}</h1><p className="project-hero__subtitle">{project.subtitle}</p></div>
+          <p className="project-hero__summary">{project.summary}</p>
+        </div>
+        <dl className="qwen-meta">
+          <div><dt>{t("caseStudy.projectType")}</dt><dd>{content.projectType}</dd></div>
+          <div><dt>{t("caseStudy.role")}</dt><dd>{project.role}</dd></div>
+          <div><dt>{t("caseStudy.timeline")}</dt><dd>{project.timeline}</dd></div>
+          <div><dt>{t("caseStudy.status")}</dt><dd>{project.status}</dd></div>
+        </dl>
+        <div className="project-hero__actions">
+          <a className="action-link" href={config.demo} target="_blank" rel="noreferrer">{content.links.live} <span aria-hidden="true">↗</span></a>
+          <a className="action-link action-link--quiet" href={config.backup} target="_blank" rel="noreferrer">{content.links.backup} <span aria-hidden="true">↗</span></a>
+          <a className="action-link action-link--quiet" href={config.github} target="_blank" rel="noreferrer">{content.links.github} <span aria-hidden="true">↗</span></a>
+        </div>
+        <p className="qwen-deployment-note">{content.deploymentNote}</p>
+        <QwenImage asset={assets.hero!} alt={content.heroAlt} className="qwen-image--hero" />
+      </section>
+
+      <CaseSection number="02" title={t("caseStudy.problemInsight")} className="qwen-problem-insight">
+        <p className="qwen-section-intro">{content.problemInsight.intro}</p>
+        <ul className="qwen-problem-points">{content.problemInsight.problems.map((item) => <li key={item}>{item}</li>)}</ul>
+        <div className="qwen-before-after">
+          <article className="qwen-before-after__before">
+            <span className="mini-label">{content.problemInsight.visuals[0].label}</span>
+            <QwenImage asset={gallery[0]} alt={content.problemInsight.visuals[0].alt} />
+          </article>
+          <i className="qwen-before-after__arrow" aria-hidden="true">→</i>
+          <div className="qwen-before-after__after">
+            {gallery.slice(1, 3).map((asset, index) => <article key={asset.src}><span className="mini-label">{content.problemInsight.visuals[index + 1].label}</span><QwenImage asset={asset} alt={content.problemInsight.visuals[index + 1].alt} /></article>)}
+          </div>
+        </div>
+        <p className="qwen-visual-summary">{content.problemInsight.summary}</p>
+      </CaseSection>
+
+      <CaseSection number="03" title={t("caseStudy.coreStrategy")} className="qwen-core-strategy">
+        <div className="qwen-strategy-grid">{content.coreStrategy.map((item, index) => <article key={item.title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{item.title}</h3><p>{item.text}</p></article>)}</div>
+        <blockquote>{content.strategyLine}</blockquote>
+      </CaseSection>
+
+      <CaseSection number="04" title={t("caseStudy.prototypeExperience")} className="qwen-prototype">
+        <p className="qwen-section-intro">{content.prototypeIntro}</p>
+        <div className="qwen-prototype-grid">{content.prototype.map((item, index) => <article key={item.label}><header><span>{item.label}</span><h3>{item.title}</h3></header><QwenImage asset={gallery[index + 3]} alt={item.alt} /><p>{item.text}</p></article>)}</div>
+      </CaseSection>
+
+      <CaseSection number="05" title={t("caseStudy.validationTitle")} className="qwen-validation">
+        <div className="qwen-validation-layout">
+          <article><span className="mini-label">{t("caseStudy.validation")}</span><p>{content.validationIntro}</p><ul className="qwen-metrics">{content.metrics.map((item) => <li key={item}>{item}</li>)}</ul></article>
+        </div>
+        <a className="qwen-cta" href={config.demo} target="_blank" rel="noreferrer"><span><strong>{content.cta.title}</strong><small>{content.cta.text}</small></span><i aria-hidden="true">↗</i></a>
+      </CaseSection>
+      <nav className="next-project section-shell" aria-label={t("common.nextProject")}><span>{t("common.nextProject")}</span><Link to={`/work/${nextSlug}`}>{next.title}<span aria-hidden="true">↗</span></Link></nav>
+    </main>
+  );
+}
+
 export function ProjectPage() {
   const { slug } = useParams();
   const { t } = useTranslation();
@@ -59,6 +131,10 @@ export function ProjectPage() {
     drl: { problem: 0, strategy: 0, solution: 1, system: 0 },
     hospital: { problem: 0, strategy: 0, solution: 1, system: 0 },
   }[key];
+
+  if (key === "qwen" && project.portfolio) {
+    return <QwenPortfolioPage project={project} config={config} assets={assets} next={next} nextSlug={nextConfig.slug} t={t} />;
+  }
 
   return (
     <main id="main-content" className={`case-study case-study--${key}`}>

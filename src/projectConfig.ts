@@ -8,6 +8,7 @@ export const projectConfig: Record<
     slug: string;
     featured: boolean;
     demo?: string;
+    backup?: string;
     github?: string;
     mediaKind: "product" | "research" | "typography";
   }
@@ -23,6 +24,8 @@ export const projectConfig: Record<
     slug: "qwen-ai-case-study",
     featured: true,
     demo: "https://qwen-product-case-study.pages.dev",
+    backup: "https://qwen-product-case-study.vercel.app",
+    github: "https://github.com/Jane-Hanzhen/qwen-product-case-study",
     mediaKind: "product",
   },
   drl: {

@@ -12,12 +12,13 @@ import urbanReport from "./assets/projects/urban/06-report-summary.png";
 import urbanReportZh from "./assets/projects/urban/ZN-06-report-summary.png";
 import urbanBoundary from "./assets/projects/urban/07-analysis.png";
 import urbanBoundaryZh from "./assets/projects/urban/ZN-07-analysis.png";
-import qwenHero from "./assets/projects/qwen/01-qwen-hero.png";
-import qwenProblem from "./assets/projects/qwen/02-problem-ai-gui-insight.png";
-import qwenSolution from "./assets/projects/qwen/03-core-solution-before-after.png";
-import qwenFlow from "./assets/projects/qwen/04-prototype-flow-ai-gui.png";
-import qwenRecovery from "./assets/projects/qwen/05-critical-state-recovery.png";
-import qwenGrowth from "./assets/projects/qwen/06-growth-extension-rewards.png";
+import qwen01 from "./assets/projects/qwen/01.png";
+import qwen02 from "./assets/projects/qwen/02.png";
+import qwen03 from "./assets/projects/qwen/03.png";
+import qwen04 from "./assets/projects/qwen/04.png";
+import qwen05 from "./assets/projects/qwen/05.png";
+import qwen06 from "./assets/projects/qwen/06.png";
+import qwen07 from "./assets/projects/qwen/07.png";
 import drlFramework from "./assets/projects/drl/01-drl-system-framework.png";
 import drlTraining from "./assets/projects/drl/02-drl-training-performance.png";
 import drlEnvironment from "./assets/projects/drl/03-experimental-environments.png";
@@ -42,6 +43,7 @@ export type ProjectAssetSet = {
     strategy?: ProjectAsset[];
     solution?: ProjectAsset[];
     system?: ProjectAsset[];
+    gallery?: ProjectAsset[];
 };
 
 export const projectAssets: Record<ProjectKey, ProjectAssetSet> = {
@@ -101,13 +103,14 @@ export const projectAssets: Record<ProjectKey, ProjectAssetSet> = {
         ],
     },
     qwen: {
-        hero: { src: qwenHero, width: 1680, height: 1750, fit: "cover", position: "center top" },
-        problem: [{ src: qwenProblem, width: 1680, height: 2200, fit: "contain" }],
-        strategy: [{ src: qwenSolution, width: 1680, height: 1450, fit: "contain" }],
-        solution: [
-            { src: qwenFlow, width: 1680, height: 2550, fit: "contain" },
-            { src: qwenRecovery, width: 1680, height: 2000, fit: "contain" },
-            { src: qwenGrowth, width: 1680, height: 2050, fit: "contain" },
+        hero: { src: qwen01, width: 1330, height: 1317, fit: "cover", position: "center top" },
+        gallery: [
+            { src: qwen02, width: 544, height: 1090, fit: "contain" },
+            { src: qwen03, width: 744, height: 1504, fit: "contain" },
+            { src: qwen04, width: 748, height: 1504, fit: "contain" },
+            { src: qwen05, width: 1125, height: 2436, fit: "contain" },
+            { src: qwen06, width: 1165, height: 2450, fit: "contain" },
+            { src: qwen07, width: 1134, height: 2445, fit: "contain" },
         ],
     },
     drl: {

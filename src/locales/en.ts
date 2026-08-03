@@ -209,13 +209,12 @@ export const en = {
             qwen: {
                 number: "02 / 04",
                 title: "Qwen AI New User Experience & Retention Strategy",
-                subtitle: "A consumer AI strategy from recommendation to GUI-supported decisions",
-                summary:
-                    "A round-trip flight case study where AI understands and narrows the task, while GUI handles comparison and confirmation so users do not restart the decision in a traditional OTA.",
+                subtitle: "An AI product experience optimization case study",
+                summary: "An AI product experience case study for new Qwen users, combining AI intent understanding, GUI-supported decisions and benefits that create a reason to return.",
                 tags: ["AI Product", "Growth Strategy", "UX"],
                 role: "Independent Product Manager Case Study",
-                timeline: "Independent product exploration",
-                status: "Interactive concept prototype on Cloudflare Pages",
+                timeline: "2025 · Independent product exploration",
+                status: "Product case study · Interactive prototype · Metrics pending validation",
                 media: "Qwen Case Study Hero Capture — Pending",
                 mediaNote:
                     "To be replaced with a verified AI conversation and GUI decision capture from the Cloudflare Pages demo",
@@ -353,6 +352,41 @@ export const en = {
                             value: "Stop the experiment and restore the current recommendation flow if guardrails deteriorate",
                         },
                     ],
+                },
+                portfolio: {
+                    projectType: "AI product case study / interactive prototype",
+                    targetUser: "New Qwen users arriving with a specific task",
+                    deploymentNote: "The project is deployed on both Cloudflare Pages and Vercel. The Portfolio links to Cloudflare Pages by default, with Vercel as the backup deployment.",
+                    links: { live: "Live Case Study", backup: "Vercel Backup", github: "GitHub" },
+                    heroAlt: "Overview of the Qwen new-user experience and benefits journey case study",
+                    problemInsight: {
+                        intro: "Pure conversation still breaks between understanding a need and completing an action.",
+                        problems: [
+                            "Conversation can understand a need, but struggles to support continuous comparison, confirmation and action.",
+                            "After completing a task, users lack a natural ecosystem entry and a clear reason to explore or return.",
+                        ],
+                        summary: "AI handles intent and initial filtering; GUI supports comparison, confirmation, and action.",
+                        visuals: [
+                            { label: "Before · AI-only Recommendation", alt: "Qwen AI-only recommendation interface where the user journey stops after recommendation" },
+                            { label: "After 01 · Action Entry", alt: "Qwen AI shortlisting with an entry to continue the task" },
+                            { label: "After 02 · GUI Decision", alt: "Qwen GUI supporting option comparison, selection and confirmation" },
+                        ],
+                    },
+                    coreStrategy: [
+                        { title: "AI understands the need", text: "Use natural language for intent understanding and initial filtering." },
+                        { title: "GUI supports decisions", text: "Use structured interfaces for comparison, selection and confirmation." },
+                        { title: "Benefits create a return path", text: "After task completion, provide a reason to explore ecosystem services." },
+                    ],
+                    strategyLine: "AI helps users understand and filter; GUI helps them compare and act; benefits create a reason for the next visit.",
+                    prototypeIntro: "Benefits extend the post-task journey from discovery to browsing and redemption.",
+                    prototype: [
+                        { label: "01 Discover", title: "Discover the Benefits entry", text: "Surface benefits naturally on Home, connecting the core task to ecosystem services.", alt: "Benefits entry on Qwen Home" },
+                        { label: "02 Browse", title: "Browse My Benefits", text: "Present available benefits together to reduce the cost of finding and understanding them.", alt: "My Benefits list in Qwen" },
+                        { label: "03 Redeem", title: "Complete redemption", text: "Use a structured interface to select and redeem a benefit, completing the action loop.", alt: "Benefit selection and redemption interface in Qwen" },
+                    ],
+                    validationIntro: "These are product experiment metrics to validate; the project does not include real online experiment results.",
+                    metrics: ["Seven-day retention", "Benefits-entry click-through rate", "Benefit browse or redemption conversion", "Ecosystem feature adoption"],
+                    cta: { title: "View the full Case Study", text: "Read the complete problem analysis, strategy rationale, user journey, experiment design and product roadmap." },
                 },
             },
             drl: {
@@ -607,6 +641,12 @@ export const en = {
             },
         },
         caseStudy: {
+            projectType: "Project type",
+            problemInsight: "Problem & Product Insight",
+            productInsight: "Product insight",
+            coreStrategy: "Core Strategy",
+            prototypeExperience: "Prototype Experience",
+            validationTitle: "Validation",
             overview: "Overview",
             problem: "Problem",
             strategy: "Insight & Strategy",

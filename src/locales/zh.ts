@@ -200,13 +200,12 @@ export const zh = {
             qwen: {
                 number: "02 / 04",
                 title: "千问 AI 新用户体验与留存优化",
-                subtitle: "从 AI 推荐到 GUI 决策闭环的消费 AI 产品策略",
-                summary:
-                    "以往返机票为切入点：AI 理解与初筛，GUI 承载比较与确认，让用户不必在推荐后回到传统 OTA 重新决策。",
+                subtitle: "AI 产品体验优化 Case Study",
+                summary: "面向千问新用户的 AI 产品体验优化 Case Study，通过 AI 理解需求、GUI 承载决策，并以权益建立后续复访理由。",
                 tags: ["AI Product", "Growth Strategy", "UX"],
                 role: "Independent Product Manager Case Study",
-                timeline: "独立产品推演",
-                status: "Cloudflare Pages 互动概念原型",
+                timeline: "2026 · 独立产品推演",
+                status: "产品 Case Study · 可交互原型 · 指标待验证",
                 media: "Qwen Case Study Hero Capture — Pending",
                 mediaNote: "待从 Cloudflare Pages Demo 替换为真实 AI 对话与 GUI 决策截图",
                 overview:
@@ -310,6 +309,60 @@ export const zh = {
                         { label: "Guardrails", value: "页面响应时间、API 错误率、支付前价格变化率" },
                         { label: "Rollback", value: "若护栏指标恶化，停止实验并恢复现有推荐流程" },
                     ],
+                },
+                portfolio: {
+                    projectType: "AI 产品 Case Study / 可交互原型",
+                    targetUser: "从明确任务进入千问的新用户",
+                    deploymentNote:
+                        "项目同时部署于 Cloudflare Pages 与 Vercel。Portfolio 默认连接 Cloudflare Pages 版本，Vercel 作为备用部署。",
+                    links: { live: "Live Case Study", backup: "Vercel Backup", github: "GitHub" },
+                    heroAlt: "千问 AI 新用户体验与权益路径 Case Study 成果预览",
+                    problemInsight: {
+                        intro: "从理解需求到完成行动，纯对话仍然存在断点。",
+                        problems: [
+                            "纯对话可以理解需求，却难以支持连续的比较、确认和操作。",
+                            "任务完成后缺少自然的生态入口，用户没有明确的继续探索与复访理由。",
+                        ],
+                        summary: "AI 负责理解和初筛，GUI 负责比较、确认与行动。",
+                        visuals: [
+                            { label: "Before · 纯 AI 推荐", alt: "千问纯 AI 推荐界面，推荐后的用户路径中断" },
+                            { label: "After 01 · 提供行动入口", alt: "千问 AI 初步筛选并提供继续操作入口" },
+                            { label: "After 02 · 进入 GUI 决策", alt: "千问 GUI 界面承载方案比较、选择和确认" },
+                        ],
+                    },
+                    coreStrategy: [
+                        { title: "AI 理解需求", text: "通过自然语言完成意图理解和初步筛选。" },
+                        { title: "GUI 支撑决策", text: "用结构化界面承载比较、选择和确认。" },
+                        { title: "权益驱动复访", text: "在任务完成后提供继续探索生态服务的理由。" },
+                    ],
+                    strategyLine: "AI 帮用户理解与筛选，GUI 帮用户比较与行动，权益建立下一次访问的理由。",
+                    prototypeIntro: "将权益嵌入任务完成后的连续路径，从入口发现延伸到浏览和兑换。",
+                    prototype: [
+                        {
+                            label: "01 发现入口",
+                            title: "发现权益入口",
+                            text: "在首页自然露出权益入口，连接核心任务与生态服务。",
+                            alt: "千问首页中的权益入口",
+                        },
+                        {
+                            label: "02 浏览权益",
+                            title: "浏览我的权益",
+                            text: "集中呈现可用权益，降低理解和查找成本。",
+                            alt: "千问我的权益列表界面",
+                        },
+                        {
+                            label: "03 完成兑换",
+                            title: "完成权益兑换",
+                            text: "通过结构化界面完成选择与兑换，形成完整操作闭环。",
+                            alt: "千问权益选择与兑换界面",
+                        },
+                    ],
+                    validationIntro: "以上为待验证的产品实验指标，当前项目不包含真实线上实验结果。",
+                    metrics: ["7 日留存率", "权益入口点击率", "权益浏览／兑换转化率", "生态功能使用率"],
+                    cta: {
+                        title: "查看完整 Case Study",
+                        text: "阅读完整的问题分析、策略推导、用户路径、实验设计与产品 Roadmap。",
+                    },
                 },
             },
             drl: {
@@ -531,6 +584,12 @@ export const zh = {
             },
         },
         caseStudy: {
+            projectType: "项目类型",
+            problemInsight: "问题与产品洞察",
+            productInsight: "产品洞察",
+            coreStrategy: "核心策略",
+            prototypeExperience: "原型体验",
+            validationTitle: "验证",
             overview: "项目概览",
             problem: "问题",
             strategy: "洞察与策略",
