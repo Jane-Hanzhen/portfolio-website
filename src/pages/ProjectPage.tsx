@@ -48,6 +48,28 @@ function QwenImage({ asset, alt, className = "" }: { asset: ProjectAsset; alt: s
   );
 }
 
+function ProjectHeroHeader({ project, t }: { project: ProjectContent; t: ReturnType<typeof useTranslation>["t"] }) {
+  const hero = project.hero ?? project;
+  return (
+    <>
+      <div className="project-hero__title-row">
+        <div>
+          <ul className="tag-list" aria-label="Project tags">{hero.tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>
+          <h1>{project.title}</h1>
+          <p className="project-hero__subtitle">{hero.subtitle}</p>
+        </div>
+        <p className="project-hero__summary">{hero.summary}</p>
+      </div>
+      <dl className="project-meta">
+        <div><dt>{t("caseStudy.projectType")}</dt><dd>{project.projectType}</dd></div>
+        <div><dt>{t("caseStudy.role")}</dt><dd>{project.role}</dd></div>
+        <div><dt>{t("caseStudy.timeline")}</dt><dd>{project.timeline}</dd></div>
+        <div><dt>{t("caseStudy.status")}</dt><dd>{project.status}</dd></div>
+      </dl>
+    </>
+  );
+}
+
 function QwenPortfolioPage({ project, config, assets, next, nextSlug, t }: { project: ProjectContent; config: typeof projectConfig.qwen; assets: (typeof projectAssets)["qwen"]; next: ProjectContent; nextSlug: string; t: ReturnType<typeof useTranslation>["t"] }) {
   const content = project.portfolio!;
   const gallery = assets.gallery!;
@@ -55,16 +77,7 @@ function QwenPortfolioPage({ project, config, assets, next, nextSlug, t }: { pro
     <main id="main-content" className="case-study case-study--qwen qwen-portfolio">
       <section className="project-hero section-shell">
         <div className="project-hero__eyebrow"><Link to="/">{t("common.backHome")}</Link><span>{project.number}</span></div>
-        <div className="project-hero__title-row">
-          <div><ul className="tag-list" aria-label="Project tags">{project.tags.map((tag) => <li key={tag}>{tag}</li>)}</ul><h1>{project.title}</h1><p className="project-hero__subtitle">{project.subtitle}</p></div>
-          <p className="project-hero__summary">{project.summary}</p>
-        </div>
-        <dl className="qwen-meta">
-          <div><dt>{t("caseStudy.projectType")}</dt><dd>{content.projectType}</dd></div>
-          <div><dt>{t("caseStudy.role")}</dt><dd>{project.role}</dd></div>
-          <div><dt>{t("caseStudy.timeline")}</dt><dd>{project.timeline}</dd></div>
-          <div><dt>{t("caseStudy.status")}</dt><dd>{project.status}</dd></div>
-        </dl>
+        <ProjectHeroHeader project={project} t={t} />
         <div className="project-hero__actions">
           <a className="action-link" href={config.demo} target="_blank" rel="noreferrer">{content.links.live} <span aria-hidden="true">↗</span></a>
           <a className="action-link action-link--quiet" href={config.backup} target="_blank" rel="noreferrer">{content.links.backup} <span aria-hidden="true">↗</span></a>
@@ -74,7 +87,7 @@ function QwenPortfolioPage({ project, config, assets, next, nextSlug, t }: { pro
         <QwenImage asset={assets.hero!} alt={content.heroAlt} className="qwen-image--hero" />
       </section>
 
-      <CaseSection number="02" title={t("caseStudy.problemInsight")} className="qwen-problem-insight">
+      <CaseSection number="01" title={t("caseStudy.problemInsight")} className="qwen-problem-insight">
         <p className="qwen-section-intro">{content.problemInsight.intro}</p>
         <ul className="qwen-problem-points">{content.problemInsight.problems.map((item) => <li key={item}>{item}</li>)}</ul>
         <div className="qwen-before-after">
@@ -90,17 +103,17 @@ function QwenPortfolioPage({ project, config, assets, next, nextSlug, t }: { pro
         <p className="qwen-visual-summary">{content.problemInsight.summary}</p>
       </CaseSection>
 
-      <CaseSection number="03" title={t("caseStudy.coreStrategy")} className="qwen-core-strategy">
+      <CaseSection number="02" title={t("caseStudy.coreStrategy")} className="qwen-core-strategy">
         <div className="qwen-strategy-grid">{content.coreStrategy.map((item, index) => <article key={item.title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{item.title}</h3><p>{item.text}</p></article>)}</div>
         <blockquote>{content.strategyLine}</blockquote>
       </CaseSection>
 
-      <CaseSection number="04" title={t("caseStudy.prototypeExperience")} className="qwen-prototype">
+      <CaseSection number="03" title={t("caseStudy.prototypeExperience")} className="qwen-prototype">
         <p className="qwen-section-intro">{content.prototypeIntro}</p>
         <div className="qwen-prototype-grid">{content.prototype.map((item, index) => <article key={item.label}><header><span>{item.label}</span><h3>{item.title}</h3></header><QwenImage asset={gallery[index + 3]} alt={item.alt} /><p>{item.text}</p></article>)}</div>
       </CaseSection>
 
-      <CaseSection number="05" title={t("caseStudy.validationTitle")} className="qwen-validation">
+      <CaseSection number="04" title={t("caseStudy.validationTitle")} className="qwen-validation">
         <div className="qwen-validation-layout">
           <article><span className="mini-label">{t("caseStudy.validation")}</span><p>{content.validationIntro}</p><ul className="qwen-metrics">{content.metrics.map((item) => <li key={item}>{item}</li>)}</ul></article>
         </div>
@@ -143,14 +156,7 @@ export function ProjectPage() {
           <Link to="/">{t("common.backHome")}</Link>
           <span>{project.number}</span>
         </div>
-        <div className="project-hero__title-row">
-          <div>
-            <ul className="tag-list" aria-label="Project tags">{project.tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>
-            <h1>{project.title}</h1>
-            <p className="project-hero__subtitle">{project.subtitle}</p>
-          </div>
-          <p className="project-hero__summary">{project.summary}</p>
-        </div>
+        <ProjectHeroHeader project={project} t={t} />
         <div className="project-hero__actions">
           {config.demo ? <a className="action-link" href={config.demo} target="_blank" rel="noreferrer">{t("common.liveDemo")} <span aria-hidden="true">↗</span></a> : null}
           {config.github ? <a className="action-link action-link--quiet" href={config.github} target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a> : null}
@@ -162,18 +168,7 @@ export function ProjectPage() {
         )}
       </section>
 
-      <CaseSection number="01" title={t("caseStudy.overview")} className="case-overview">
-        <div className="overview-grid">
-          <p className="case-lead">{project.overview}</p>
-          <dl className="project-meta-grid">
-            <div><dt>{t("caseStudy.role")}</dt><dd>{project.role}</dd></div>
-            <div><dt>{t("caseStudy.timeline")}</dt><dd>{project.timeline}</dd></div>
-            <div><dt>{t("caseStudy.status")}</dt><dd>{project.status}</dd></div>
-          </dl>
-        </div>
-      </CaseSection>
-
-      <CaseSection number="02" title={t("caseStudy.problem")} className="case-problem">
+      <CaseSection number="01" title={t("caseStudy.problem")} className="case-problem">
         <div className="problem-grid">
           <div><span className="mini-label">{t("caseStudy.targetUser")}</span><p>{project.problem.user}</p></div>
           <div><span className="mini-label">{t("caseStudy.currentFlow")}</span><p className="mono-flow">{project.problem.flow}</p></div>
@@ -182,7 +177,7 @@ export function ProjectPage() {
         <VisualGroup assets={assets.problem} project={project} start={visualStarts.problem} />
       </CaseSection>
 
-      <CaseSection number="03" title={t("caseStudy.strategy")} className="case-strategy">
+      <CaseSection number="02" title={t("caseStudy.strategy")} className="case-strategy">
         <div className="strategy-list">
           {project.strategies.map((item, index) => (
             <article key={`${item.observation}-${index}`} className="strategy-row">
@@ -197,7 +192,7 @@ export function ProjectPage() {
         <VisualGroup assets={assets.strategy} project={project} start={visualStarts.strategy} />
       </CaseSection>
 
-      <CaseSection number="04" title={t("caseStudy.solution")} className="case-solution">
+      <CaseSection number="03" title={t("caseStudy.solution")} className="case-solution">
         <div className="moment-grid">
           {project.moments.map((moment, index) => (
             <article key={moment.title} className="moment-card">
@@ -216,7 +211,7 @@ export function ProjectPage() {
         {!assets.solution?.length && key === "hospital" ? <p className="pending-note"><i aria-hidden="true" /> {t("caseStudy.mediaPending")}</p> : null}
       </CaseSection>
 
-      <CaseSection number="05" title={t("caseStudy.system")} className="case-system">
+      <CaseSection number="04" title={t("caseStudy.system")} className="case-system">
         {project.architectureLayers?.length ? (
           <div className="architecture-layers" aria-label={t("caseStudy.system")}>
             {project.architectureLayers.map((layer) => (
@@ -256,7 +251,7 @@ export function ProjectPage() {
         ) : null}
       </CaseSection>
 
-      <CaseSection number="06" title={t("caseStudy.validation")} className="case-validation">
+      <CaseSection number="05" title={t("caseStudy.validation")} className="case-validation">
         {project.experiment ? (
           <section className="experiment-plan" aria-labelledby="experiment-plan-title">
             <div className="experiment-plan__heading">
@@ -280,7 +275,7 @@ export function ProjectPage() {
         </div>
       </CaseSection>
 
-      <CaseSection number="07" title={t("caseStudy.reflection")} className="case-reflection">
+      <CaseSection number="06" title={t("caseStudy.reflection")} className="case-reflection">
         <p className="reflection-copy">{project.reflection}</p>
       </CaseSection>
 

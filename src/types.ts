@@ -56,6 +56,12 @@ export type ProjectContent = {
   subtitle: string;
   summary: string;
   tags: string[];
+  projectType: string;
+  hero?: {
+    subtitle: string;
+    summary: string;
+    tags: string[];
+  };
   role: string;
   timeline: string;
   status: string;
@@ -77,7 +83,6 @@ export type ProjectContent = {
   visuals?: ProjectVisual[];
   experiment?: ExperimentPlan;
   portfolio?: {
-    projectType: string;
     targetUser: string;
     deploymentNote: string;
     links: { live: string; backup: string; github: string };

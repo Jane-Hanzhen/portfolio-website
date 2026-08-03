@@ -89,9 +89,16 @@ export const en = {
                 summary:
                     "An explorable, comparable and report-ready decision product combining urban indicators, PCA–TOPSIS evaluation, map-based discovery and constrained AI interpretation.",
                 tags: ["AI Product", "LLM", "Full-stack"],
+                projectType: "AI urban analytics platform / interactive demo",
+                hero: {
+                    subtitle: "Urban Decision Analytics & AI Interpretation Platform",
+                    summary:
+                        "Productizes a London quality-of-life study as an interactive urban analysis tool: maps establish regional context, deterministic analysis produces scores, and AI supports interpretation, comparison and report writing.",
+                    tags: ["AI Product", "Urban Analytics", "GIS"],
+                },
                 role: "Independent Product Designer & Developer",
-                timeline: "Productized in 2026.06",
-                status: "Public Demo on ModelScope · Decoupled Frontend–Backend Deployment on Vercel + Railway",
+                timeline: "2024.11–2025.01 research · 2026.06 productization",
+                status: "Public ModelScope demo · Vercel + Railway backup deployment",
                 media: "UrbanInsight Hero Capture — Pending",
                 mediaNote: "To be replaced with a verified map and analysis workspace capture from the ModelScope demo",
                 overview:
@@ -210,8 +217,10 @@ export const en = {
                 number: "02 / 04",
                 title: "Qwen AI New User Experience & Retention Strategy",
                 subtitle: "An AI product experience optimization case study",
-                summary: "An AI product experience case study for new Qwen users, combining AI intent understanding, GUI-supported decisions and benefits that create a reason to return.",
+                summary:
+                    "An AI product experience case study for new Qwen users, combining AI intent understanding, GUI-supported decisions and benefits that create a reason to return.",
                 tags: ["AI Product", "Growth Strategy", "UX"],
+                projectType: "AI product case study / interactive prototype",
                 role: "Independent Product Manager Case Study",
                 timeline: "2025 · Independent product exploration",
                 status: "Product case study · Interactive prototype · Metrics pending validation",
@@ -354,9 +363,9 @@ export const en = {
                     ],
                 },
                 portfolio: {
-                    projectType: "AI product case study / interactive prototype",
                     targetUser: "New Qwen users arriving with a specific task",
-                    deploymentNote: "The project is deployed on both Cloudflare Pages and Vercel. The Portfolio links to Cloudflare Pages by default, with Vercel as the backup deployment.",
+                    deploymentNote:
+                        "The project is deployed on both Cloudflare Pages and Vercel. The Portfolio links to Cloudflare Pages by default, with Vercel as the backup deployment.",
                     links: { live: "Live Case Study", backup: "Vercel Backup", github: "GitHub" },
                     heroAlt: "Overview of the Qwen new-user experience and benefits journey case study",
                     problemInsight: {
@@ -365,28 +374,72 @@ export const en = {
                             "Conversation can understand a need, but struggles to support continuous comparison, confirmation and action.",
                             "After completing a task, users lack a natural ecosystem entry and a clear reason to explore or return.",
                         ],
-                        summary: "AI handles intent and initial filtering; GUI supports comparison, confirmation, and action.",
+                        summary:
+                            "AI handles intent and initial filtering; GUI supports comparison, confirmation, and action.",
                         visuals: [
-                            { label: "Before · AI-only Recommendation", alt: "Qwen AI-only recommendation interface where the user journey stops after recommendation" },
-                            { label: "After 01 · Action Entry", alt: "Qwen AI shortlisting with an entry to continue the task" },
-                            { label: "After 02 · GUI Decision", alt: "Qwen GUI supporting option comparison, selection and confirmation" },
+                            {
+                                label: "Before · AI-only Recommendation",
+                                alt: "Qwen AI-only recommendation interface where the user journey stops after recommendation",
+                            },
+                            {
+                                label: "After 01 · Action Entry",
+                                alt: "Qwen AI shortlisting with an entry to continue the task",
+                            },
+                            {
+                                label: "After 02 · GUI Decision",
+                                alt: "Qwen GUI supporting option comparison, selection and confirmation",
+                            },
                         ],
                     },
                     coreStrategy: [
-                        { title: "AI understands the need", text: "Use natural language for intent understanding and initial filtering." },
-                        { title: "GUI supports decisions", text: "Use structured interfaces for comparison, selection and confirmation." },
-                        { title: "Benefits create a return path", text: "After task completion, provide a reason to explore ecosystem services." },
+                        {
+                            title: "AI understands the need",
+                            text: "Use natural language for intent understanding and initial filtering.",
+                        },
+                        {
+                            title: "GUI supports decisions",
+                            text: "Use structured interfaces for comparison, selection and confirmation.",
+                        },
+                        {
+                            title: "Benefits create a return path",
+                            text: "After task completion, provide a reason to explore ecosystem services.",
+                        },
                     ],
-                    strategyLine: "AI helps users understand and filter; GUI helps them compare and act; benefits create a reason for the next visit.",
+                    strategyLine:
+                        "AI helps users understand and filter; GUI helps them compare and act; benefits create a reason for the next visit.",
                     prototypeIntro: "Benefits extend the post-task journey from discovery to browsing and redemption.",
                     prototype: [
-                        { label: "01 Discover", title: "Discover the Benefits entry", text: "Surface benefits naturally on Home, connecting the core task to ecosystem services.", alt: "Benefits entry on Qwen Home" },
-                        { label: "02 Browse", title: "Browse My Benefits", text: "Present available benefits together to reduce the cost of finding and understanding them.", alt: "My Benefits list in Qwen" },
-                        { label: "03 Redeem", title: "Complete redemption", text: "Use a structured interface to select and redeem a benefit, completing the action loop.", alt: "Benefit selection and redemption interface in Qwen" },
+                        {
+                            label: "01 Discover",
+                            title: "Discover the Benefits entry",
+                            text: "Surface benefits naturally on Home, connecting the core task to ecosystem services.",
+                            alt: "Benefits entry on Qwen Home",
+                        },
+                        {
+                            label: "02 Browse",
+                            title: "Browse My Benefits",
+                            text: "Present available benefits together to reduce the cost of finding and understanding them.",
+                            alt: "My Benefits list in Qwen",
+                        },
+                        {
+                            label: "03 Redeem",
+                            title: "Complete redemption",
+                            text: "Use a structured interface to select and redeem a benefit, completing the action loop.",
+                            alt: "Benefit selection and redemption interface in Qwen",
+                        },
                     ],
-                    validationIntro: "These are product experiment metrics to validate; the project does not include real online experiment results.",
-                    metrics: ["Seven-day retention", "Benefits-entry click-through rate", "Benefit browse or redemption conversion", "Ecosystem feature adoption"],
-                    cta: { title: "View the full Case Study", text: "Read the complete problem analysis, strategy rationale, user journey, experiment design and product roadmap." },
+                    validationIntro:
+                        "These are product experiment metrics to validate; the project does not include real online experiment results.",
+                    metrics: [
+                        "Seven-day retention",
+                        "Benefits-entry click-through rate",
+                        "Benefit browse or redemption conversion",
+                        "Ecosystem feature adoption",
+                    ],
+                    cta: {
+                        title: "View the full Case Study",
+                        text: "Read the complete problem analysis, strategy rationale, user journey, experiment design and product roadmap.",
+                    },
                 },
             },
             drl: {
@@ -396,9 +449,16 @@ export const en = {
                 summary:
                     "A multi-agent experiment adding Big Five traits, age and gender to state and reward mechanisms to test how personality parameters shape navigation behavior and performance.",
                 tags: ["Deep RL", "Simulation", "Experiment"],
+                projectType: "DRL research and simulation project",
+                hero: {
+                    subtitle: "Using deep reinforcement learning to model personality-driven indoor behavior",
+                    summary:
+                        "Builds a TD3-based, personality-driven indoor crowd simulation by mapping personality, age and gender into state, reward and social constraints, then validates distinct navigation patterns in controlled experiments.",
+                    tags: ["Deep Reinforcement Learning", "Crowd Simulation", "Behavioral Modeling"],
+                },
                 role: "Research Project Lead",
                 timeline: "2025.02–2025.09",
-                status: "Academic research / AI algorithm project",
+                status: "Research validation completed",
                 media: "DRL Presentation Visual — Pending Export",
                 mediaNote: "To reuse verified charts from presentation pages 6, 10, 11 or 12",
                 overview:
@@ -512,6 +572,13 @@ export const en = {
                 summary:
                     "A technical product connecting mobile crowdsourcing, location intelligence, spatial APIs and interactive decision views in one hospital-information workflow.",
                 tags: ["Technical Product", "Web GIS", "Spatial Data"],
+                projectType: "Full-stack Web GIS technical product",
+                hero: {
+                    subtitle: "Hospital Spatial Data Collection & Collaboration Platform",
+                    summary:
+                        "Serves field contributors and hospital-status monitors by connecting mobile crowdsourcing, spatial APIs and interactive dashboards, keeping location, queue and environmental reports current and usable for spatial decisions.",
+                    tags: ["Technical Product", "Web GIS", "Spatial Data"],
+                },
                 role: "Full-stack Web GIS Development",
                 timeline: "2024.10–2024.12",
                 status: "Completed full-stack Web GIS project",
@@ -643,7 +710,6 @@ export const en = {
         caseStudy: {
             projectType: "Project type",
             problemInsight: "Problem & Product Insight",
-            productInsight: "Product insight",
             coreStrategy: "Core Strategy",
             prototypeExperience: "Prototype Experience",
             validationTitle: "Validation",

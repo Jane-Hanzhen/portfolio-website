@@ -93,9 +93,16 @@ export const zh = {
                 summary:
                     "把城市指标、PCA–TOPSIS 评价、地图探索与基于分析结果的 AI 解读，组织成可探索、可比较、可输出的决策产品。",
                 tags: ["AI Product", "LLM", "Full-stack"],
+                projectType: "AI 城市分析平台 / 可交互 Demo",
+                hero: {
+                    subtitle: "城市决策分析与 AI 解读平台",
+                    summary:
+                        "将伦敦生活质量研究产品化为可交互的城市分析工具：以地图建立区域上下文，通过确定性分析生成评分，并由 AI 辅助解释、比较与报告表达。",
+                    tags: ["AI Product", "Urban Analytics", "GIS"],
+                },
                 role: "独立产品设计与开发",
-                timeline: "2026.06 产品化",
-                status: "ModelScope 公开 Demo\u2028Vercel + Railway 前后端分离部署",
+                timeline: "2024.11–2025.01 研究分析 · 2026.06 产品化",
+                status: "ModelScope 公开 Demo · Vercel + Railway 备用部署",
                 media: "UrbanInsight Hero Capture — Pending",
                 mediaNote: "待从 ModelScope Demo 替换为真实地图与分析工作区截图",
                 overview:
@@ -201,8 +208,10 @@ export const zh = {
                 number: "02 / 04",
                 title: "千问 AI 新用户体验与留存优化",
                 subtitle: "AI 产品体验优化 Case Study",
-                summary: "面向千问新用户的 AI 产品体验优化 Case Study，通过 AI 理解需求、GUI 承载决策，并以权益建立后续复访理由。",
+                summary:
+                    "面向千问新用户的 AI 产品体验优化 Case Study，通过 AI 理解需求、GUI 承载决策，并以权益建立后续复访理由。",
                 tags: ["AI Product", "Growth Strategy", "UX"],
+                projectType: "AI 产品 Case Study / 可交互原型",
                 role: "Independent Product Manager Case Study",
                 timeline: "2026 · 独立产品推演",
                 status: "产品 Case Study · 可交互原型 · 指标待验证",
@@ -311,7 +320,6 @@ export const zh = {
                     ],
                 },
                 portfolio: {
-                    projectType: "AI 产品 Case Study / 可交互原型",
                     targetUser: "从明确任务进入千问的新用户",
                     deploymentNote:
                         "项目同时部署于 Cloudflare Pages 与 Vercel。Portfolio 默认连接 Cloudflare Pages 版本，Vercel 作为备用部署。",
@@ -371,9 +379,16 @@ export const zh = {
                 subtitle: "用深度强化学习模拟人格差异驱动的室内行为",
                 summary: "将大五人格、年龄与性别加入多智能体状态和奖励机制，验证人格参数如何影响导航行为与任务表现。",
                 tags: ["Deep RL", "Simulation", "Experiment"],
+                projectType: "DRL 研究与仿真项目",
+                hero: {
+                    subtitle: "用深度强化学习模拟人格差异驱动的室内行为",
+                    summary:
+                        "基于 TD3 构建人格驱动的室内人群行为仿真，将人格、年龄与性别映射为状态、奖励与社交约束，并通过受控实验验证不同人格的导航差异。",
+                    tags: ["Deep Reinforcement Learning", "Crowd Simulation", "Behavioral Modeling"],
+                },
                 role: "Research Project Lead",
                 timeline: "2025.02–2025.09",
-                status: "学术研究 / AI 算法项目",
+                status: "研究验证完成",
                 media: "DRL Presentation Visual — Pending Export",
                 mediaNote: "待直接复用 Presentation 第 6、10、11 或 12 页真实图表",
                 overview: "项目针对传统人群仿真将人视为同质物理智能体的限制，建立人格驱动的多智能体深度强化学习框架。",
@@ -465,6 +480,13 @@ export const zh = {
                 subtitle: "支持医院状态众包采集与空间决策可视化的全栈 Web GIS 平台。",
                 summary: "将移动端众包、位置智能、空间 API 与交互式决策视图连接为一套医院信息工作流。",
                 tags: ["Technical Product", "Web GIS", "Spatial Data"],
+                projectType: "全栈 Web GIS 技术产品",
+                hero: {
+                    subtitle: "医院空间信息采集与协作平台",
+                    summary:
+                        "面向现场信息贡献者与医院状态监测用户，连接移动众包采集、空间数据 API 与交互式看板，让位置、排队和环境报告能够持续更新并支持空间决策。",
+                    tags: ["Technical Product", "Web GIS", "Spatial Data"],
+                },
                 role: "Full-stack Web GIS Development",
                 timeline: "2024.10–2024.12",
                 status: "完整全栈 Web GIS 项目",
@@ -586,7 +608,6 @@ export const zh = {
         caseStudy: {
             projectType: "项目类型",
             problemInsight: "问题与产品洞察",
-            productInsight: "产品洞察",
             coreStrategy: "核心策略",
             prototypeExperience: "原型体验",
             validationTitle: "验证",
