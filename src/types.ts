@@ -18,6 +18,11 @@ export type TechStackGroup = {
   items: string[];
 };
 
+export type ArchitectureLayer = {
+  title: string;
+  items: string[];
+};
+
 export type ValidationType = "verified" | "engineering" | "target" | "unvalidated";
 
 export type ValidationItem = {
@@ -65,6 +70,7 @@ export type ProjectContent = {
   strategies: StrategyItem[];
   moments: MomentItem[];
   system: string[];
+  architectureLayers?: ArchitectureLayer[];
   techStack?: TechStackGroup[];
   validation: ValidationItem[];
   reflection: string;

@@ -1,8 +1,15 @@
 import urbanHome from "./assets/projects/urban/01-urban-home.png";
+import urbanHomeZh from "./assets/projects/urban/ZN-01-urban-home.png";
+import urbanMapHover from "./assets/projects/urban/02-map-hover-preview.png";
+import urbanMapHoverZh from "./assets/projects/urban/ZN-02-map-hover-preview.png";
 import urbanAnalysis from "./assets/projects/urban/02-analysis-overview.png";
+import urbanAnalysisZh from "./assets/projects/urban/ZN-02-analysis-overview.png";
 import urbanInsight from "./assets/projects/urban/03-ai-insight.png";
+import urbanInsightZh from "./assets/projects/urban/ZN-03-ai-insight.png";
 import urbanCompare from "./assets/projects/urban/04-compare.png";
+import urbanCompareZh from "./assets/projects/urban/ZN-04-compare.png";
 import urbanReport from "./assets/projects/urban/06-report-summary.png";
+import urbanReportZh from "./assets/projects/urban/ZN-06-report-summary.png";
 import urbanBoundary from "./assets/projects/urban/07-base-analysis-vs-ai-deep-analysis.png";
 import qwenHero from "./assets/projects/qwen/01-qwen-hero.png";
 import qwenProblem from "./assets/projects/qwen/02-problem-ai-gui-insight.png";
@@ -25,6 +32,7 @@ export type ProjectAsset = {
   height: number;
   fit: "cover" | "contain";
   position?: string;
+  zh?: Pick<ProjectAsset, "src" | "width" | "height">;
 };
 
 export type ProjectAssetSet = {
@@ -37,12 +45,13 @@ export type ProjectAssetSet = {
 
 export const projectAssets: Record<ProjectKey, ProjectAssetSet> = {
   urbaninsight: {
-    hero: { src: urbanHome, width: 3148, height: 1661, fit: "cover" },
+    hero: { src: urbanHome, width: 3148, height: 1661, fit: "cover", zh: { src: urbanHomeZh, width: 2510, height: 1326 } },
     solution: [
-      { src: urbanAnalysis, width: 3778, height: 3692, fit: "contain" },
-      { src: urbanInsight, width: 3778, height: 3556, fit: "contain" },
-      { src: urbanCompare, width: 588, height: 1286, fit: "contain" },
-      { src: urbanReport, width: 1241, height: 1754, fit: "contain" },
+      { src: urbanMapHover, width: 3024, height: 1592, fit: "contain", zh: { src: urbanMapHoverZh, width: 3024, height: 1610 } },
+      { src: urbanAnalysis, width: 3778, height: 3692, fit: "contain", zh: { src: urbanAnalysisZh, width: 1612, height: 1450 } },
+      { src: urbanInsight, width: 3778, height: 3556, fit: "contain", zh: { src: urbanInsightZh, width: 1706, height: 1396 } },
+      { src: urbanCompare, width: 588, height: 1286, fit: "contain", zh: { src: urbanCompareZh, width: 692, height: 1478 } },
+      { src: urbanReport, width: 1241, height: 1754, fit: "contain", zh: { src: urbanReportZh, width: 1156, height: 1664 } },
     ],
     system: [{ src: urbanBoundary, width: 3250, height: 1723, fit: "contain" }],
   },

@@ -378,6 +378,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   gap: 2rem;
   padding-top: 0.8rem;
 }
+.project-media--caption-before figcaption { padding-top: 0; padding-bottom: clamp(1rem, 1.8vw, 1.4rem); }
 .project-media figcaption > span {
   font-family: var(--mono);
   color: var(--accent);
@@ -500,6 +501,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .system-node span { font-family: var(--mono); color: var(--accent); font-size: 0.66rem; }
 .system-node strong { font-size: 1rem; font-weight: 500; line-height: 1.35; }
 .system-node i { position: absolute; right: -0.55rem; top: 50%; z-index: 1; width: 1.1rem; height: 1.1rem; background: var(--canvas); display: grid; place-items: center; font-family: var(--mono); font-style: normal; font-size: 0.68rem; }
+.architecture-layers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1rem, 2vw, 1.5rem); }
+.architecture-layer { min-width: 0; min-height: 190px; padding: clamp(1.4rem, 2.5vw, 2.25rem); border: 1px solid var(--line-dark); border-radius: 9px; background: var(--paper); }
+.architecture-layer h3 { margin: 0 0 clamp(2rem, 4vw, 3rem); color: var(--accent); font-family: var(--mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.055em; text-transform: uppercase; }
+.architecture-layer ul { display: flex; flex-direction: column; align-items: flex-start; gap: 0.65rem; }
+.architecture-layer li { color: var(--ink-soft); font-size: 0.95rem; line-height: 1.5; }
 .tech-stack { margin-top: clamp(3.5rem, 6vw, 5.5rem); border-top: 1px solid var(--line-dark); }
 .tech-stack__heading { display: grid; grid-template-columns: 2fr 9fr; gap: 2rem; padding-block: 1.4rem 2.2rem; }
 .tech-stack__heading span { font-family: var(--mono); color: var(--accent); font-size: 0.68rem; }
@@ -612,6 +618,9 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .strategy-row:has(.strategy-title) { grid-template-columns: 1fr; }
   .strategy-decision { padding: 1.2rem 0 0; border-left: 0; border-top: 2px solid var(--accent); }
   .moment-grid { grid-template-columns: 1fr; }
+  .architecture-layers { grid-template-columns: 1fr; gap: 1rem; }
+  .architecture-layer { min-height: 0; padding: 1.4rem; }
+  .architecture-layer h3 { margin-bottom: 1.5rem; }
   .case-study--hospital .moment-grid { grid-template-columns: 1fr; }
   .moment-card { display: block; }
   .system-flow { grid-template-columns: 1fr; border: 1px solid var(--line-dark); }

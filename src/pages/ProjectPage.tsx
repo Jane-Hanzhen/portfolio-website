@@ -28,12 +28,12 @@ const validationClass: Record<ValidationType, string> = {
   unvalidated: "unvalidated",
 };
 
-function VisualGroup({ assets = [], project, start }: { assets?: ProjectAsset[]; project: ProjectContent; start: number }) {
+function VisualGroup({ assets = [], project, start, captionBefore = false }: { assets?: ProjectAsset[]; project: ProjectContent; start: number; captionBefore?: boolean }) {
   if (!assets.length || !project.visuals) return null;
   return (
     <div className="visual-story">
       {assets.map((asset, index) => (
-        <ProjectMedia key={asset.src} asset={asset} content={project.visuals![start + index]} />
+        <ProjectMedia key={asset.src} asset={asset} content={project.visuals![start + index]} captionBefore={captionBefore} />
       ))}
     </div>
   );
@@ -54,7 +54,7 @@ export function ProjectPage() {
   const nextConfig = projectConfig[nextKey];
   const assets = projectAssets[key];
   const visualStarts = {
-    urbaninsight: { problem: 0, strategy: 0, solution: 1, system: 5 },
+    urbaninsight: { problem: 0, strategy: 0, solution: 1, system: 6 },
     qwen: { problem: 1, strategy: 2, solution: 3, system: 0 },
     drl: { problem: 0, strategy: 0, solution: 1, system: 0 },
     hospital: { problem: 0, strategy: 0, solution: 1, system: 0 },
@@ -136,21 +136,32 @@ export function ProjectPage() {
             </article>
           ))}
         </div>
-        <VisualGroup assets={assets.solution} project={project} start={visualStarts.solution} />
+        <VisualGroup assets={assets.solution} project={project} start={visualStarts.solution} captionBefore={key === "urbaninsight"} />
         {!assets.solution?.length && key === "hospital" ? <p className="pending-note"><i aria-hidden="true" /> {t("caseStudy.mediaPending")}</p> : null}
       </CaseSection>
 
       <CaseSection number="05" title={t("caseStudy.system")} className="case-system">
-        <div className="system-flow" aria-label={t("caseStudy.system")}>
-          {project.system.map((node, index) => (
-            <div className="system-node" key={node}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <strong>{node}</strong>
-              {index < project.system.length - 1 ? <i aria-hidden="true">→</i> : null}
-            </div>
-          ))}
-        </div>
-        <VisualGroup assets={assets.system} project={project} start={visualStarts.system} />
+        {project.architectureLayers?.length ? (
+          <div className="architecture-layers" aria-label={t("caseStudy.system")}>
+            {project.architectureLayers.map((layer) => (
+              <section className="architecture-layer" key={layer.title}>
+                <h3>{layer.title}</h3>
+                <ul>{layer.items.map((item) => <li key={item}>{item}</li>)}</ul>
+              </section>
+            ))}
+          </div>
+        ) : (
+          <div className="system-flow" aria-label={t("caseStudy.system")}>
+            {project.system.map((node, index) => (
+              <div className="system-node" key={node}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <strong>{node}</strong>
+                {index < project.system.length - 1 ? <i aria-hidden="true">→</i> : null}
+              </div>
+            ))}
+          </div>
+        )}
+        <VisualGroup assets={assets.system} project={project} start={visualStarts.system} captionBefore={key === "urbaninsight"} />
         {project.techStack?.length ? (
           <section className="tech-stack" aria-labelledby="tech-stack-title">
             <div className="tech-stack__heading">
