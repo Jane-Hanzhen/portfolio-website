@@ -3,8 +3,6 @@ import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
 import { LanguageSwitch } from "./LanguageSwitch";
 
-const GITHUB_URL = "https://github.com/Jane-Hanzhen";
-
 export function SiteHeader() {
   const { t } = useTranslation();
   const location = useLocation();
@@ -15,6 +13,7 @@ export function SiteHeader() {
 
   const workHref = isHome ? "#work" : "/#work";
   const aboutHref = isHome ? "#about" : "/#about";
+  const capabilitiesHref = isHome ? "#capabilities" : "/#capabilities";
 
   return (
     <header className="site-header">
@@ -26,9 +25,7 @@ export function SiteHeader() {
         <nav className="desktop-nav" aria-label="Primary navigation">
           <a href={workHref}>{t("common.work")}</a>
           <a href={aboutHref}>{t("common.about")}</a>
-          <a href={GITHUB_URL} target="_blank" rel="noreferrer">
-            {t("common.github")} <span aria-hidden="true">↗</span>
-          </a>
+          <a href={capabilitiesHref}>{t("common.capabilities")}</a>
           <LanguageSwitch />
         </nav>
 
@@ -47,9 +44,7 @@ export function SiteHeader() {
       <nav id="mobile-navigation" className={`mobile-nav ${open ? "is-open" : ""}`} aria-label="Mobile navigation">
         <a href={workHref} onClick={() => setOpen(false)}>{t("common.work")}</a>
         <a href={aboutHref} onClick={() => setOpen(false)}>{t("common.about")}</a>
-        <a href={GITHUB_URL} target="_blank" rel="noreferrer">
-          {t("common.github")} <span aria-hidden="true">↗</span>
-        </a>
+        <a href={capabilitiesHref} onClick={() => setOpen(false)}>{t("common.capabilities")}</a>
         <LanguageSwitch onChange={() => setOpen(false)} />
       </nav>
     </header>

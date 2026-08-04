@@ -76,6 +76,7 @@ export type ProjectContent = {
   strategies: StrategyItem[];
   moments: MomentItem[];
   system: string[];
+  systemTitle?: string;
   architectureLayers?: ArchitectureLayer[];
   techStack?: TechStackGroup[];
   validation: ValidationItem[];

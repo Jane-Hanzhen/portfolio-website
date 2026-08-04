@@ -44,43 +44,51 @@ function ProjectCard({ projectKey }: { projectKey: ProjectKey }) {
   );
 }
 
-function CapabilityColumn({ name }: { name: "product" | "ai" | "build" }) {
+function CapabilityGrid() {
   const { t } = useTranslation();
-  const group = t(`home.capabilities.${name}`, { returnObjects: true }) as { title: string; items: string[] };
+  const items = t("home.capabilities.items", { returnObjects: true }) as { title: string; description: string }[];
   return (
-    <div className="capability-group">
-      <h3>{group.title}</h3>
-      <ol>
-        {group.items.map((item, index) => (
-          <li key={item}><span>{String(index + 1).padStart(2, "0")}</span>{item}</li>
-        ))}
-      </ol>
+    <div className="capabilities-grid">
+      {items.map((item, index) => (
+        <article className="capability-item" key={item.title}>
+          <span>{String(index + 1).padStart(2, "0")}</span>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </article>
+      ))}
     </div>
   );
 }
 
 export function HomePage() {
   const { t } = useTranslation();
-  const path = t("home.about.path", { returnObjects: true }) as string[];
+  const education = t("home.hero.education", { returnObjects: true }) as { school: string; degree: string; years: string }[];
 
   return (
     <main id="main-content">
-      <section className="hero section-shell" aria-labelledby="hero-title">
-        <div className="hero__meta">
-          <span>{t("home.hero.eyebrow")}</span>
-          <span><i aria-hidden="true" /> AI / PRODUCT / BUILD</span>
+      <section className="personal-hero section-shell" aria-labelledby="hero-title">
+        <div className="personal-hero__identity">
+          <p className="eyebrow">{t("home.hero.eyebrow")}</p>
+          <h1 id="hero-title">{t("home.hero.name")}</h1>
+          <p className="personal-hero__direction">{t("home.hero.direction")}</p>
+          <p className="personal-hero__statement">{t("home.hero.statement")}</p>
         </div>
-        <div className="hero__body">
-          <h1 id="hero-title">
-            <span>{t("home.hero.titleLine1")}</span>
-            <span>{t("home.hero.titleLine2")}</span>
-          </h1>
-          <div className="hero__statement">
-            <p>{t("home.hero.statement")}</p>
-            <a className="text-link" href="#work">{t("home.hero.cta")} <span aria-hidden="true">↓</span></a>
+        <div className="personal-hero__education" aria-label={t("home.hero.educationLabel")}>
+          {education.map((item) => (
+            <article key={item.school}>
+              <h2>{item.school}</h2>
+              <p>{item.degree}</p>
+              <time>{item.years}</time>
+            </article>
+          ))}
+        </div>
+        <div className="personal-hero__actions">
+          <div className="personal-hero__contacts">
+            <a href={`mailto:${EMAIL}`}>{t("common.email")} <span aria-hidden="true">↗</span></a>
+            <a href={GITHUB} target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
           </div>
+          <a className="text-link" href="#work">{t("home.hero.cta")} <span aria-hidden="true">↓</span></a>
         </div>
-        <p className="hero__note">{t("home.hero.note")}</p>
       </section>
 
       <section id="work" className="work-section section-shell" aria-labelledby="work-heading">
@@ -103,57 +111,17 @@ export function HomePage() {
         <Reveal className="about-grid">
           <SectionHeading eyebrow={t("home.about.eyebrow")} title={t("home.about.title")} />
           <div className="about-copy">
-            <p id="about-heading">{t("home.about.body")}</p>
-            <ol className="career-path" aria-label="Career path">
-              {path.map((item, index) => (
-                <li key={item}><span>{String(index + 1).padStart(2, "0")}</span>{item}</li>
-              ))}
-            </ol>
+            <p id="about-heading">{t("home.about.body1")}</p>
+            <p>{t("home.about.body2")}</p>
           </div>
         </Reveal>
       </section>
 
-      <section className="capabilities-section section-shell" aria-labelledby="capabilities-heading">
+      <section id="capabilities" className="capabilities-section section-shell" aria-labelledby="capabilities-heading">
         <Reveal>
           <SectionHeading eyebrow={t("home.capabilities.eyebrow")} title={t("home.capabilities.title")} />
         </Reveal>
-        <Reveal className="capabilities-grid">
-          <CapabilityColumn name="product" />
-          <CapabilityColumn name="ai" />
-          <CapabilityColumn name="build" />
-        </Reveal>
-      </section>
-
-      <section className="education-section section-shell" aria-labelledby="education-heading">
-        <Reveal>
-          <SectionHeading eyebrow={t("home.education.eyebrow")} title={t("home.education.title")} />
-        </Reveal>
-        <Reveal className="education-grid">
-          <article>
-            <span className="project-number">01</span>
-            <h3>{t("home.education.ucl.school")}</h3>
-            <p>{t("home.education.ucl.degree")}</p>
-            <time>{t("home.education.ucl.years")}</time>
-          </article>
-          <article>
-            <span className="project-number">02</span>
-            <h3>{t("home.education.cug.school")}</h3>
-            <p>{t("home.education.cug.degree")}</p>
-            <time>{t("home.education.cug.years")}</time>
-            <small>{t("home.education.cug.honors")}</small>
-          </article>
-        </Reveal>
-      </section>
-
-      <section className="contact-section section-shell" aria-labelledby="contact-heading">
-        <Reveal>
-          <p className="eyebrow">{t("home.contact.eyebrow")}</p>
-          <h2 id="contact-heading">{t("home.contact.title")}</h2>
-          <div className="contact-links">
-            <a href={`mailto:${EMAIL}`}>{EMAIL} <span aria-hidden="true">↗</span></a>
-            <a href={GITHUB} target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-          </div>
-        </Reveal>
+        <Reveal><CapabilityGrid /></Reveal>
       </section>
     </main>
   );

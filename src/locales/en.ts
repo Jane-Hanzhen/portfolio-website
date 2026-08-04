@@ -4,6 +4,7 @@ export const en = {
             skip: "Skip to main content",
             work: "Work",
             about: "About",
+            capabilities: "Capabilities",
             github: "GitHub",
             language: "Language",
             menu: "Menu",
@@ -19,11 +20,24 @@ export const en = {
         home: {
             hero: {
                 eyebrow: "PORTFOLIO 2026",
-                titleLine1: "AI PRODUCT ×",
-                titleLine2: "TECHNICAL PRODUCT",
-                statement: "I turn complex AI, data and models into clear, usable product experiences.",
-                cta: "View selected work",
-                note: "Product judgment · AI / ML fluency · End-to-end building",
+                name: "Hanzhen Fang / Jane Fang",
+                direction: "AI Product · Technical Product · Data-driven Product",
+                statement:
+                    "Combining data analytics, machine learning, and product design to build practical and explainable digital products.",
+                cta: "View Selected Work",
+                educationLabel: "Education",
+                education: [
+                    {
+                        school: "UCL",
+                        degree: "MSc Geospatial Sciences (GIS & Computing)",
+                        years: "Sep 2024 – Sep 2025",
+                    },
+                    {
+                        school: "China University of Geosciences",
+                        degree: "BSc Geographic Information Science",
+                        years: "Sep 2020 – Jun 2024",
+                    },
+                ],
             },
             selectedWork: {
                 eyebrow: "SELECTED WORK",
@@ -33,52 +47,30 @@ export const en = {
             about: {
                 eyebrow: "ABOUT",
                 title: "From complex data systems to usable AI products",
-                body: "My background began with spatial data and complex systems analysis, then expanded into machine learning, AI product design and end-to-end product building. I focus not only on what a model can do, but on how technology becomes understandable, controllable and useful in real tasks.",
-                path: ["Spatial / Data", "Machine Learning / AI", "Product Building", "AI Product"],
+                body1: "With an interdisciplinary background in GIS and computing, I focus on turning data analytics, machine learning, and complex systems into product experiences that people can understand and use.",
+                body2: "My work spans AI product strategy, full-stack prototyping, spatial analytics, and deep reinforcement learning, allowing me to approach product design through user needs, system logic, and technical implementation.",
             },
             capabilities: {
                 eyebrow: "CAPABILITIES",
-                title: "What I Work Across",
-                product: {
-                    title: "Product",
-                    items: [
-                        "AI Product Strategy",
-                        "User Journey",
-                        "Product Discovery",
-                        "Experiment Design",
-                        "Growth Strategy",
-                    ],
-                },
-                ai: {
-                    title: "AI & Data",
-                    items: [
-                        "LLM Product Design",
-                        "Machine Learning",
-                        "Deep Learning",
-                        "Reinforcement Learning",
-                        "Spatial Analytics",
-                    ],
-                },
-                build: {
-                    title: "Build",
-                    items: ["Python", "TypeScript / JavaScript", "React", "FastAPI", "SQL", "Git / Deployment"],
-                },
-            },
-            education: {
-                eyebrow: "EDUCATION",
-                title: "Education",
-                ucl: { school: "University College London", degree: "MSc Geospatial Sciences", years: "2024–2025" },
-                cug: {
-                    school: "China University of Geosciences (Wuhan)",
-                    degree: "BSc Geographic Information Science",
-                    years: "2019–2023",
-                    honors: "Top 5% · National Scholarship ×2",
-                },
-            },
-            contact: {
-                eyebrow: "CONTACT",
-                title: "Let’s talk about AI product, technical product and strategy opportunities.",
-                name: "Jane Fang",
+                title: "Capabilities",
+                items: [
+                    {
+                        title: "AI Product & Strategy",
+                        description: "Product Insight · AI + GUI Experience · Metrics & Experimentation",
+                    },
+                    {
+                        title: "Data & Machine Learning",
+                        description: "Data Analysis · Machine Learning · Deep Reinforcement Learning",
+                    },
+                    {
+                        title: "Product Prototyping",
+                        description: "Interactive Prototypes · Full-stack Demos · API Integration",
+                    },
+                    {
+                        title: "Spatial Analytics & Visualization",
+                        description: "GIS · Spatial Analysis · Interactive Data Visualization",
+                    },
+                ],
             },
         },
         projects: {
@@ -509,6 +501,7 @@ export const en = {
                     "TD3 Agent",
                     "Behavior",
                 ],
+                systemTitle: "System & Model Design",
                 validation: [
                     {
                         type: "verified",
@@ -580,7 +573,7 @@ export const en = {
                     tags: ["Technical Product", "Web GIS", "Spatial Data"],
                 },
                 role: "Full-stack Web GIS Development",
-                timeline: "2024.10–2024.12",
+                timeline: "2025.03–2025.05",
                 status: "Completed full-stack Web GIS project",
                 media: "HOSPITAL SPATIAL INTELLIGENCE PLATFORM",
                 mediaNote: "VERIFIED PRODUCT INTERFACE",
@@ -647,11 +640,12 @@ export const en = {
                     },
                 ],
                 system: [
-                    "Mobile / Web Client",
+                    "Web Client",
                     "RESTful API (Node.js + Express)",
                     "PostgreSQL / PostGIS",
                     "Spatial Visualization (Leaflet + Cesium)",
                 ],
+                systemTitle: "System Architecture",
                 techStack: [
                     { label: "Frontend", items: ["JavaScript", "HTML / CSS", "Bootstrap", "Leaflet", "Cesium"] },
                     { label: "Backend", items: ["Node.js", "Express"] },

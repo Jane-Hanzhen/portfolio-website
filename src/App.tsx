@@ -5,6 +5,9 @@ import { SiteHeader } from "./components/SiteHeader";
 import { HomePage } from "./pages/HomePage";
 import { ProjectPage } from "./pages/ProjectPage";
 
+const EMAIL = "963528370@qq.com";
+const GITHUB = "https://github.com/Jane-Hanzhen";
+
 function RouteEffects() {
   const location = useLocation();
   const { i18n } = useTranslation();
@@ -38,8 +41,11 @@ function App() {
         <Route path="*" element={<HomePage />} />
       </Routes>
       <footer className="site-footer section-shell">
-        <span>Jane Fang</span>
-        <span>AI PRODUCT × TECHNICAL PRODUCT</span>
+        <span>{t("home.hero.name")}</span>
+        <div className="site-footer__links">
+          <a href={`mailto:${EMAIL}`}>{t("common.email")}</a>
+          <a href={GITHUB} target="_blank" rel="noreferrer">GitHub</a>
+        </div>
         <span>© 2026</span>
       </footer>
     </>

@@ -126,7 +126,7 @@ function QwenPortfolioPage({ project, config, assets, next, nextSlug, t }: { pro
 
 export function ProjectPage() {
   const { slug } = useParams();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const key = slug ? projectKeyBySlug[slug] : undefined;
 
   if (!key) return <Navigate to="/" replace />;
@@ -138,6 +138,8 @@ export function ProjectPage() {
   const next = t(`projects.${nextKey}`, { returnObjects: true }) as ProjectContent;
   const nextConfig = projectConfig[nextKey];
   const assets = projectAssets[key];
+  const isRefinedCaseStudy = key === "drl" || key === "hospital";
+  const isChineseRefinedCaseStudy = isRefinedCaseStudy && i18n.resolvedLanguage?.startsWith("zh");
   const visualStarts = {
     urbaninsight: { problem: 0, strategy: 0, solution: 1, system: 6 },
     qwen: { problem: 1, strategy: 2, solution: 3, system: 0 },
@@ -162,7 +164,7 @@ export function ProjectPage() {
           {config.github ? <a className="action-link action-link--quiet" href={config.github} target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a> : null}
         </div>
         {assets.hero && project.visuals?.[0] ? (
-          <ProjectMedia asset={assets.hero} content={project.visuals[0]} priority variant="hero" />
+          <ProjectMedia asset={assets.hero} content={project.visuals[0]} priority variant="hero" captionBefore={isRefinedCaseStudy} />
         ) : (
           <MediaPlaceholder title={project.media} note={project.mediaNote} kind={config.mediaKind} />
         )}
@@ -183,9 +185,9 @@ export function ProjectPage() {
             <article key={`${item.observation}-${index}`} className="strategy-row">
               <span className="strategy-index">{String(index + 1).padStart(2, "0")}</span>
               {item.title ? <h3 className="strategy-title">{item.title}</h3> : null}
-              <div><span className="mini-label">{t("caseStudy.observation")}</span><p>{item.observation}</p></div>
-              <div><span className="mini-label">{t("caseStudy.insight")}</span><p>{item.insight}</p></div>
-              <div className="strategy-decision"><span className="mini-label">{t("caseStudy.decision")}</span><p>{item.decision}</p></div>
+              <div><span className="mini-label">{isChineseRefinedCaseStudy ? "观察" : t("caseStudy.observation")}</span><p>{item.observation}</p></div>
+              <div><span className="mini-label">{isChineseRefinedCaseStudy ? "洞察" : t("caseStudy.insight")}</span><p>{item.insight}</p></div>
+              <div className="strategy-decision"><span className="mini-label">{isChineseRefinedCaseStudy ? "决策" : t("caseStudy.decision")}</span><p>{item.decision}</p></div>
             </article>
           ))}
         </div>
@@ -207,13 +209,13 @@ export function ProjectPage() {
             </article>
           ))}
         </div>
-        <VisualGroup assets={assets.solution} project={project} start={visualStarts.solution} captionBefore={key === "urbaninsight"} />
+        <VisualGroup assets={assets.solution} project={project} start={visualStarts.solution} captionBefore={key === "urbaninsight" || isRefinedCaseStudy} />
         {!assets.solution?.length && key === "hospital" ? <p className="pending-note"><i aria-hidden="true" /> {t("caseStudy.mediaPending")}</p> : null}
       </CaseSection>
 
-      <CaseSection number="04" title={t("caseStudy.system")} className="case-system">
+      <CaseSection number="04" title={project.systemTitle ?? t("caseStudy.system")} className="case-system">
         {project.architectureLayers?.length ? (
-          <div className="architecture-layers" aria-label={t("caseStudy.system")}>
+          <div className="architecture-layers" aria-label={project.systemTitle ?? t("caseStudy.system")}>
             {project.architectureLayers.map((layer) => (
               <section className="architecture-layer" key={layer.title}>
                 <h3>{layer.title}</h3>
@@ -222,7 +224,7 @@ export function ProjectPage() {
             ))}
           </div>
         ) : (
-          <div className="system-flow" aria-label={t("caseStudy.system")}>
+          <div className="system-flow" aria-label={project.systemTitle ?? t("caseStudy.system")}>
             {project.system.map((node, index) => (
               <div className="system-node" key={node}>
                 <span>{String(index + 1).padStart(2, "0")}</span>
@@ -236,7 +238,7 @@ export function ProjectPage() {
         {project.techStack?.length ? (
           <section className="tech-stack" aria-labelledby="tech-stack-title">
             <div className="tech-stack__heading">
-              <span>TECH STACK</span>
+              <span>{isChineseRefinedCaseStudy ? "技术栈" : "TECH STACK"}</span>
               <h3 id="tech-stack-title">{t("caseStudy.techStack")}</h3>
             </div>
             <div className="tech-stack__grid">
