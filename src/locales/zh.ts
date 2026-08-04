@@ -21,19 +21,23 @@ export const zh = {
             hero: {
                 eyebrow: "PORTFOLIO 2026",
                 name: "房晗祯",
-                direction: "AI 产品 · 技术产品 · 数据驱动产品",
-                statement: "将数据分析、机器学习与产品设计结合，构建可落地、可解释的数字产品。",
+                direction: "AI PRODUCT · TECH PRODUCT · DATA-DRIVEN PRODUCT",
+                statement: "连接数据、智能与产品体验，将复杂技术转化为真实场景中的可用产品。",
                 cta: "查看精选项目",
                 educationLabel: "教育背景",
                 education: [
-                    { school: "UCL", degree: "MSc Geospatial Sciences (GIS & Computing)", years: "2024.09 – 2025.12" },
+                    {
+                        school: "University College London (UCL)",
+                        degree: "MSc Geospatial Sciences (GIS & Computing)",
+                        years: "2024.09 – 2025.12",
+                    },
                     { school: "中国地质大学 (武汉) ", degree: "BSc 地理信息科学", years: "2019.09 – 2023.06" },
                 ],
             },
             selectedWork: {
                 eyebrow: "SELECTED WORK",
                 title: "精选项目",
-                intro: "四个项目分别展示 AI 产品架构、消费 AI 策略、机器学习实验与完整系统构建能力。",
+                intro: "四个项目分别展示 AI 产品架构、AI 用户体验策略、机器学习实验与完整系统构建能力。",
             },
             about: {
                 eyebrow: "ABOUT",

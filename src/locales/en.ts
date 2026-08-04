@@ -20,15 +20,15 @@ export const en = {
         home: {
             hero: {
                 eyebrow: "PORTFOLIO 2026",
-                name: "Hanzhen Fang / Jane Fang",
-                direction: "AI Product · Technical Product · Data-driven Product",
+                name: "Hanzhen Fang",
+                direction: "AI PRODUCT · TECH PRODUCT · DATA-DRIVEN PRODUCT",
                 statement:
-                    "Combining data analytics, machine learning, and product design to build practical and explainable digital products.",
+                    "Bridging data, intelligence, and product experience to transform complex technologies into usable products for real-world applications.",
                 cta: "View Selected Work",
                 educationLabel: "Education",
                 education: [
                     {
-                        school: "UCL",
+                        school: "University College London (UCL)",
                         degree: "MSc Geospatial Sciences (GIS & Computing)",
                         years: "Sep 2024 – Sep 2025",
                     },
@@ -42,7 +42,7 @@ export const en = {
             selectedWork: {
                 eyebrow: "SELECTED WORK",
                 title: "Selected Work",
-                intro: "Four projects showing AI product architecture, consumer AI strategy, machine-learning experimentation and complete system building.",
+                intro: "Four projects showing AI product architecture, AI product experience strategy, machine-learning experimentation and complete system building.",
             },
             about: {
                 eyebrow: "ABOUT",
