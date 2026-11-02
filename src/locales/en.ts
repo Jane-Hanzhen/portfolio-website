@@ -24,6 +24,7 @@ export const en = {
                 direction: "AI PRODUCT · TECH PRODUCT · DATA-DRIVEN PRODUCT",
                 statement:
                     "Bridging data, intelligence, and product experience to transform complex technologies into usable products for real-world applications.",
+                statementEmphasis: "usable products",
                 cta: "View Selected Work",
                 educationLabel: "Education",
                 education: [
@@ -44,15 +45,67 @@ export const en = {
                 title: "Selected Work",
                 intro: "Four projects showing AI product architecture, AI product experience strategy, machine-learning experimentation and complete system building.",
             },
+            projectOutcomes: {
+                urbaninsight: "LLM + GIS · natural-language city analysis",
+                qwen: "AI + GUI · fewer detours from missing context",
+                drl: "Personality-driven · actor-critic behaviour simulation",
+                hospital: "Crowdsourcing → spatial decisions · full-stack Web GIS",
+            },
+            sideProject: {
+                eyebrow: "SIDE PROJECT",
+                title: "My Workbench",
+                intro: "A workbench built for myself: turning long-term goals into small daily tasks, with themes that make showing up a little easier.",
+                cardTitle: "Turning a big goal into one small step I can finish today.",
+                cardBody:
+                    "The workbench brings together tasks, daily check-ins, a search roadmap, a ticket fund and reflection notes, with all data stored locally. Multiple journal-style themes are supported, and it is still in daily use and iteration.",
+                facts: [
+                    { label: "Usage", value: "Used daily since 2026.10" },
+                    { label: "Scope", value: "Task planning · Check-in tracking · Local persistence" },
+                    { label: "Status", value: "Ongoing iteration · Not yet public" },
+                ],
+                galleryLabel: "THEME PREVIEWS",
+                galleryHint: "Click to enlarge",
+                previousTheme: "Previous theme",
+                nextTheme: "Next theme",
+                themes: [
+                    {
+                        name: "Cream Matcha",
+                        code: "CREAM MATCHA",
+                        caption: "Cream paper with matcha green, sticky notes and doodles in the sidebar — the everyday version.",
+                        alt: "My Workbench Cream Matcha homepage with sidebar navigation, progress cards and today's task list",
+                    },
+                    {
+                        name: "Mocha Milk",
+                        code: "MOCHA MILK",
+                        caption: "Plaid and muted brown, like a well-worn journal page for slower evenings.",
+                        alt: "My Workbench Mocha Milk homepage with a plaid background, brown cards and today's task list",
+                    },
+                    {
+                        name: "Lotus Blush",
+                        code: "LOTUS BLUSH",
+                        caption: "Blush and green washes with a lotus motif, saved for the weekly review.",
+                        alt: "My Workbench Lotus Blush homepage with a pink washed background, lotus illustration and today's task list",
+                    },
+                ],
+            },
             about: {
                 eyebrow: "ABOUT",
                 title: "From complex data systems to usable AI products",
                 body1: "With an interdisciplinary background in GIS and computing, I focus on turning data analytics, machine learning, and complex systems into product experiences that people can understand and use.",
                 body2: "My work spans AI product strategy, full-stack prototyping, spatial analytics, and deep reinforcement learning, allowing me to approach product design through user needs, system logic, and technical implementation.",
+                eventLabel: "EARLIER / EVENT PLANNING",
+                event: "I independently planned a 100-person film screening, from community recruitment and ticket conversion to on-site execution. It taught me early on that a good plan has to hold up not only on paper, but under real constraints of people, time and budget.",
+                eventEmphasis: "real constraints of people, time and budget",
+                eventStats: [
+                    { value: "213 → 100", label: "Community → tickets" },
+                    { value: "¥6,000", label: "Budget" },
+                    { value: "100%", label: "Attendance" },
+                ],
             },
             capabilities: {
                 eyebrow: "CAPABILITIES",
                 title: "Capabilities",
+                intro: "From AI product strategy to data and prototyping, I can take a problem from definition to a working demo.",
                 items: [
                     {
                         title: "AI Product & Strategy",
@@ -71,6 +124,13 @@ export const en = {
                         description: "GIS · Spatial Analysis · Interactive Data Visualization",
                     },
                 ],
+            },
+            contactCta: {
+                eyebrow: "CONTACT",
+                title: "Let's talk about AI or data product roles.",
+                body: "If you are hiring for AI product, data product or 0→1 prototyping work, email is the fastest way to reach me.",
+                email: "Email me",
+                github: "View GitHub",
             },
         },
         projects: {
@@ -449,7 +509,7 @@ export const en = {
                     tags: ["Deep Reinforcement Learning", "Crowd Simulation", "Behavioral Modeling"],
                 },
                 role: "Research Project Lead",
-                timeline: "2025.02–2025.09",
+                timeline: "2025.02–2025.10",
                 status: "Research validation completed",
                 media: "DRL Presentation Visual — Pending Export",
                 mediaNote: "To reuse verified charts from presentation pages 6, 10, 11 or 12",

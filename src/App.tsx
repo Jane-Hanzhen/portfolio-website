@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { SiteHeader } from "./components/SiteHeader";
@@ -7,6 +7,13 @@ import { ProjectPage } from "./pages/ProjectPage";
 
 const EMAIL = "963528370@qq.com";
 const GITHUB = "https://github.com/Jane-Hanzhen";
+
+type Variant = "a" | "b";
+
+function readVariant(): Variant {
+  if (typeof window === "undefined") return "b";
+  return new URLSearchParams(window.location.search).get("variant") === "a" ? "a" : "b";
+}
 
 function RouteEffects() {
   const location = useLocation();
@@ -29,6 +36,18 @@ function RouteEffects() {
 
 function App() {
   const { t } = useTranslation();
+  const [variant, setVariant] = useState<Variant>(readVariant);
+
+  useEffect(() => {
+    document.body.dataset.variant = variant;
+  }, [variant]);
+
+  const changeVariant = (next: Variant) => {
+    setVariant(next);
+    const url = new URL(window.location.href);
+    url.searchParams.set("variant", next);
+    window.history.replaceState({}, "", url);
+  };
 
   return (
     <>
@@ -48,6 +67,17 @@ function App() {
         </div>
         <span>© 2026</span>
       </footer>
+      {import.meta.env.DEV ? (
+        <div className="variant-switch" role="group" aria-label="A/B 预览样式">
+          <span className="variant-switch__label">STYLE</span>
+          <button type="button" aria-pressed={variant === "a"} title="切换到 A 版（纸感）" onClick={() => changeVariant("a")}>
+            A
+          </button>
+          <button type="button" aria-pressed={variant === "b"} title="切换到 B 版（暖色）" onClick={() => changeVariant("b")}>
+            B
+          </button>
+        </div>
+      ) : null}
     </>
   );
 }
