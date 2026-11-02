@@ -168,8 +168,6 @@ function SideProject() {
                 width={theme.width}
                 height={theme.height}
                 alt={theme.alt}
-                loading="lazy"
-                decoding="async"
               />
             </span>
             <span className="theme-card__caption">
