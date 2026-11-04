@@ -384,7 +384,7 @@ AI 不重新计算或生成新的评分和排名。
 
 ### 8.1 AI 在产品中的角色
 
-AI 被定位为“城市分析助手”，承担：
+AI 被定位为“城市分析 Agent”，通过只读工具调用获取权威数据，承担：
 
 - 解释模型评分及排名；
 - 识别关键驱动因素；
@@ -407,7 +407,9 @@ AI 不承担：
 
 后端 AI 模块包含：
 
-- **Context Builder**：从数据库读取并组织行政区、指标、统计结果和贡献度；
+- **Agent Runtime**：驱动多步工具调用循环（最多 6 步），由模型决定读取哪些数据；生成最终回答时关闭工具调用；
+- **Tool Layer**：5 个只读工具，覆盖区域上下文、原始指标、权威分析结果、双区域对比与排名；
+- **Context Builder**：从数据库读取并组织行政区、指标、统计结果和贡献度，供工具返回；
 - **Prompt Builder**：根据分析、追问、比较和报告任务生成约束化 Prompt；
 - **Response Schema**：验证结构化分析结果；
 - **Provider Strategy**：隔离不同模型提供方；
@@ -486,7 +488,7 @@ OpenAI Provider 与配置已实现，但由于未充值 API Key，尚未完成�
 | 后端   | Python、FastAPI、Pydantic             | REST API、数据访问、AI 编排、校验与错误映射       |
 | 数据库 | SQLite                                | 行政区、指标、分析结果和模型元数据                |
 | 分析   | NumPy、PCA–TOPSIS                     | 标准化、权重、评分、排名与贡献度                  |
-| AI     | OpenAI SDK / OpenAI-compatible APIs   | 结果解释、追问、比较与报告                        |
+| AI     | OpenAI SDK / OpenAI-compatible APIs   | Agent Runtime、工具调用、结果解释、追问、比较与报告 |
 
 ### 9.2 架构原则
 
@@ -497,13 +499,16 @@ React + TypeScript 前端
 ↓
 FastAPI REST API
 ├─ SQLite ← 分析引擎
-└─ AI Decision Agent ← SQLite 权威上下文
+└─ AI Agent Runtime
+   ├─ Tool Calling → 只读分析工具（区域上下文 / 指标 / 分析结果 / 对比 / 排名）
+   └─ LLM Provider → 结构化回答与报告
 ```
 
 核心原则是：
 
 - Statistics are deterministic；
 - AI is interpretative；
+- Agent tools are read-only and bounded；
 - Providers are replaceable；
 - Frontend is provider-agnostic。
 
@@ -524,6 +529,16 @@ AI 接口：
 - `POST /ai/chat`
 - `POST /ai/compare`
 - `POST /ai/report`
+
+Agent 工具（只读，OpenAI function-calling schema）：
+
+- `get_borough_context`：区域、指标、PCA–TOPSIS 与排名上下文
+- `get_indicators`：单个区域的原始指标
+- `get_analysis_result`：已存储的权威分析结果
+- `compare_boroughs`：两个区域的权威上下文，用于对比
+- `get_ranking`：已存储的排名行
+
+Agent 循环最多 6 步；生成最终回答的请求会关闭工具调用，避免在同一步继续取数或改算结果。
 
 ### 9.4 前后端职责边界
 
@@ -829,9 +844,11 @@ GitHub 首次发布及后续中英文 README 更新完成后，项目已确认�
 - 建立引用机制，让每段解释关联具体指标；
 - 增加回答事实一致性自动评测；
 - 提供低置信度提示和无数据拒答；
-- 评估 Function Calling 或更明确的分析工具调用；
+- 将现有工具调用扩展为更明确的多步规划与工具选择评测；
 - 支持流式回复与长报告异步生成；
 - 根据成本、响应速度和准确性动态选择 Provider。
+
+> 已实现：Agent Runtime 支持 OpenAI function calling，内置 5 个只读分析工具与最多 6 步的循环；最终回答阶段关闭工具调用，所有分数与排名仍来自 PCA–TOPSIS。
 
 ### 15.4 工程化
 

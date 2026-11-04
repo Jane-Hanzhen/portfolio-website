@@ -122,13 +122,13 @@ export const zh = {
                 title: "UrbanInsight AI",
                 subtitle: "AI 城市决策智能平台",
                 summary:
-                    "把城市指标、PCA–TOPSIS 评价、地图探索与基于分析结果的 AI 解读，组织成可探索、可比较、可输出的决策产品。",
-                tags: ["AI Product", "LLM", "Full-stack"],
+                    "把城市指标、PCA–TOPSIS 评价、地图探索与通过只读工具调用查询分析结果的 LLM Agent 解读，组织成可探索、可比较、可输出的决策产品。",
+                tags: ["LLM Agent", "Tool Calling", "AI Product"],
                 projectType: "AI 城市分析平台 / 可交互 Demo",
                 hero: {
                     subtitle: "城市决策分析与 AI 解读平台",
                     summary:
-                        "将伦敦生活质量研究产品化为可交互的城市分析工具：以地图建立区域上下文，通过确定性分析生成评分，并由 AI 辅助解释、比较与报告表达。",
+                        "将伦敦生活质量研究产品化为可交互的城市分析工具：以地图建立区域上下文，通过确定性分析生成评分，再由 LLM Agent 通过只读工具调用读取已存储结果，完成解释、比较与报告表达。",
                     tags: ["AI Product", "Urban Analytics", "GIS"],
                 },
                 role: "独立产品设计与开发",
@@ -164,13 +164,19 @@ export const zh = {
                     { title: "Explore", text: "通过地图、搜索与行政区选择建立分析上下文。" },
                     { title: "Analyze", text: "阅读综合评分、排名、三维度和指标贡献。" },
                     { title: "Compare", text: "在相同数据口径下对比两个行政区。" },
-                    { title: "Ask AI", text: "AI 基于已存储结果解释优势与短板，并支持围绕分析结果继续追问。" },
+                    {
+                        title: "Ask AI",
+                        text: "Agent 通过工具调用读取评分、指标与排名，解释优势与短板，并支持围绕分析结果多轮追问。",
+                    },
                     { title: "Export", text: "将分析整理为面向决策沟通的结构化输出。" },
                 ],
                 system: [],
                 architectureLayers: [
                     { title: "数据与分析层", items: ["Multi-source Data", "SQLite", "PCA–TOPSIS"] },
-                    { title: "服务与 AI 层", items: ["FastAPI", "AI Provider", "Structured Output"] },
+                    {
+                        title: "服务与 AI 层",
+                        items: ["FastAPI", "Agent Runtime", "Tool Calling", "Structured Output"],
+                    },
                     { title: "产品体验层", items: ["React", "MapLibre", "Compare", "Export"] },
                 ],
                 validation: [
@@ -212,7 +218,8 @@ export const zh = {
                     {
                         label: "03 / AI INTERPRETATION",
                         title: "基于结果的深度解读",
-                        caption: "AI_MODE = live 时，AI 读取已存储的分析结果，说明驱动因素、优势、短板与建议。",
+                        caption:
+                            "AI_MODE = live 时，Agent 通过只读工具调用获取已存储的分析结果，说明驱动因素、优势、短板与建议；分数与排名仍来自 PCA–TOPSIS。",
                         alt: "UrbanInsight AI 深度解读页面",
                     },
                     {
@@ -230,7 +237,8 @@ export const zh = {
                     {
                         label: "AI BOUNDARY ",
                         title: "基础分析 → AI 深度分析",
-                        caption: "PCA + TOPSIS 产生结构化分数、排名与贡献度；LLM 负责解释、比较、建议与决策叙事。",
+                        caption:
+                            "PCA + TOPSIS 产生结构化分数、排名与贡献度；LLM Agent 通过只读工具调用获取这些结果，负责解释、比较、建议与决策叙事。",
                         alt: "UrbanInsight AI 确定性分析层与生成式解释层边界图",
                     },
                 ],

@@ -139,13 +139,13 @@ export const en = {
                 title: "UrbanInsight AI",
                 subtitle: "AI-powered urban decision intelligence platform",
                 summary:
-                    "An explorable, comparable and report-ready decision product combining urban indicators, PCA–TOPSIS evaluation, map-based discovery and constrained AI interpretation.",
-                tags: ["AI Product", "LLM", "Full-stack"],
+                    "An explorable, comparable and report-ready decision product combining urban indicators, PCA–TOPSIS evaluation, map-based discovery and LLM Agent interpretation grounded in read-only tool calls.",
+                tags: ["LLM Agent", "Tool Calling", "AI Product"],
                 projectType: "AI urban analytics platform / interactive demo",
                 hero: {
                     subtitle: "Urban Decision Analytics & AI Interpretation Platform",
                     summary:
-                        "Productizes a London quality-of-life study as an interactive urban analysis tool: maps establish regional context, deterministic analysis produces scores, and AI supports interpretation, comparison and report writing.",
+                        "Productizes a London quality-of-life study as an interactive urban analysis tool: maps establish regional context, deterministic analysis produces scores, and an LLM Agent reads stored results through read-only tool calls to support interpretation, comparison and report writing.",
                     tags: ["AI Product", "Urban Analytics", "GIS"],
                 },
                 role: "Independent Product Designer & Developer",
@@ -184,13 +184,19 @@ export const en = {
                         text: "Read the composite score, rank, three dimensions and indicator contributions.",
                     },
                     { title: "Compare", text: "Compare two boroughs under one consistent data definition." },
-                    { title: "Ask AI", text: "Use stored results to explain strengths, gaps and follow-up questions." },
+                    {
+                        title: "Ask AI",
+                        text: "The agent calls read-only tools to retrieve scores, indicators and rankings, then explains strengths and gaps across follow-up turns.",
+                    },
                     { title: "Export", text: "Turn the analysis into structured output for decision communication." },
                 ],
                 system: [],
                 architectureLayers: [
                     { title: "Data & Analysis", items: ["Multi-source Data", "SQLite", "PCA–TOPSIS"] },
-                    { title: "Service & AI", items: ["FastAPI", "AI Provider", "Structured Output"] },
+                    {
+                        title: "Service & AI",
+                        items: ["FastAPI", "Agent Runtime", "Tool Calling", "Structured Output"],
+                    },
                     { title: "Product Experience", items: ["React", "MapLibre", "Compare", "Export"] },
                 ],
                 validation: [
@@ -239,7 +245,7 @@ export const en = {
                         label: "03 / AI INTERPRETATION",
                         title: "Deep interpretation grounded in stored results",
                         caption:
-                            "With AI_MODE set to live, AI reads persisted analysis results to explain drivers, strengths, weaknesses and recommendations.",
+                            "With AI_MODE set to live, the agent retrieves persisted analysis results through read-only tool calls to explain drivers, strengths, weaknesses and recommendations; scores and ranks still come from PCA–TOPSIS.",
                         alt: "UrbanInsight AI deep interpretation view",
                     },
                     {
@@ -260,7 +266,7 @@ export const en = {
                         label: "AI BOUNDARY",
                         title: "Base Analysis → AI Deep Analysis",
                         caption:
-                            "PCA + TOPSIS produces scores, ranking and contributions; the LLM handles explanation, comparison, recommendations and decision-ready narrative.",
+                            "PCA + TOPSIS produces scores, ranking and contributions; an LLM Agent retrieves them through read-only tool calls and handles explanation, comparison, recommendations and decision-ready narrative.",
                         alt: "Boundary between UrbanInsight deterministic analysis and generative interpretation layers",
                     },
                 ],
