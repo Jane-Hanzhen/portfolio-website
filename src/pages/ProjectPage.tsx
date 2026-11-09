@@ -115,7 +115,7 @@ function QwenPortfolioPage({ project, config, assets, next, nextSlug, t }: { pro
 
       <CaseSection number="04" title={t("caseStudy.validationTitle")} className="qwen-validation">
         <div className="qwen-validation-layout">
-          <article><span className="mini-label">{t("caseStudy.validation")}</span><p>{content.validationIntro}</p><ul className="qwen-metrics">{content.metrics.map((item) => <li key={item}>{item}</li>)}</ul></article>
+          <article><span className="mini-label">{t("caseStudy.unvalidated")}</span><p>{content.validationIntro}</p><ul className="qwen-metrics">{content.metrics.map((item) => <li key={item}>{item}</li>)}</ul></article>
         </div>
         <a className="qwen-cta" href={config.demo} target="_blank" rel="noreferrer"><span><strong>{content.cta.title}</strong><small>{content.cta.text}</small></span><i aria-hidden="true">↗</i></a>
       </CaseSection>
@@ -152,7 +152,7 @@ export function ProjectPage() {
   }
 
   return (
-    <main id="main-content" className={`case-study case-study--${key}`}>
+    <main id="main-content" className={`case-study case-study--${key}${isRefinedCaseStudy ? " case-study--hybrid" : ""}`}>
       <section className="project-hero section-shell">
         <div className="project-hero__eyebrow">
           <Link to="/">{t("common.backHome")}</Link>
@@ -194,7 +194,7 @@ export function ProjectPage() {
         <VisualGroup assets={assets.strategy} project={project} start={visualStarts.strategy} />
       </CaseSection>
 
-      <CaseSection number="03" title={t("caseStudy.solution")} className="case-solution">
+      <CaseSection number="03" title={project.solutionTitle ?? t("caseStudy.solution")} className="case-solution">
         <div className="moment-grid">
           {project.moments.map((moment, index) => (
             <article key={moment.title} className="moment-card">
@@ -209,7 +209,7 @@ export function ProjectPage() {
             </article>
           ))}
         </div>
-        <VisualGroup assets={assets.solution} project={project} start={visualStarts.solution} captionBefore={key === "urbaninsight" || isRefinedCaseStudy} />
+        <VisualGroup assets={assets.solution} project={project} start={visualStarts.solution} captionBefore={key === "urbaninsight"} />
         {!assets.solution?.length && key === "hospital" ? <p className="pending-note"><i aria-hidden="true" /> {t("caseStudy.mediaPending")}</p> : null}
       </CaseSection>
 
@@ -238,7 +238,7 @@ export function ProjectPage() {
         {project.techStack?.length ? (
           <section className="tech-stack" aria-labelledby="tech-stack-title">
             <div className="tech-stack__heading">
-              <span>{isChineseRefinedCaseStudy ? "技术栈" : "TECH STACK"}</span>
+              <span>TECH STACK</span>
               <h3 id="tech-stack-title">{t("caseStudy.techStack")}</h3>
             </div>
             <div className="tech-stack__grid">

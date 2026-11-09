@@ -43,7 +43,7 @@ export const zh = {
             projectOutcomes: {
                 urbaninsight: "LLM + GIS · 自然语言完成城市分析",
                 qwen: "AI + GUI 协同 · 减少信息不足导致的跳转",
-                drl: "人格差异驱动 · Actor-Critic 行为模拟",
+                drl: "人格驱动 · Actor-Critic 行为模拟",
                 hospital: "众包采集 → 空间决策 · 全栈 Web GIS",
             },
             sideProject: {
@@ -415,12 +415,12 @@ export const zh = {
             drl: {
                 number: "03 / 04",
                 title: "智能人群行为模拟",
-                subtitle: "用深度强化学习模拟人格差异驱动的室内行为",
+                subtitle: "基于深度强化学习模拟人格驱动的室内行为",
                 summary: "将大五人格、年龄与性别加入多智能体状态和奖励机制，验证人格参数如何影响导航行为与任务表现。",
                 tags: ["Deep RL", "Simulation", "Experiment"],
                 projectType: "DRL 研究与仿真项目",
                 hero: {
-                    subtitle: "用深度强化学习模拟人格差异驱动的室内行为",
+                    subtitle: "基于深度强化学习模拟人格驱动的室内行为",
                     summary:
                         "基于 TD3 构建人格驱动的室内人群行为仿真，将人格、年龄与性别映射为状态、奖励与社交约束，并通过受控实验验证不同人格的导航差异。",
                     tags: ["Deep Reinforcement Learning", "Crowd Simulation", "Behavioral Modeling"],
@@ -462,6 +462,7 @@ export const zh = {
                     { title: "模型训练", text: "20 个智能体按 4 组运行 TD3 Actor–Critic 训练。" },
                     { title: "实验评估", text: "通过固定和随机目标环境比较成功率、碰撞、路径和稳定性。" },
                 ],
+                solutionTitle: "方法与实验流程",
                 systemTitle: "系统与模型设计",
                 system: [
                     "问卷与轨迹数据",
@@ -489,7 +490,7 @@ export const zh = {
                     "项目的价值在于将人格从静态标签转化为会影响强化学习决策的动态因素。现有结论属于受控实验，不应扩展为已验证的商业产品价值。",
                 visuals: [
                     {
-                        label: "01 / 系统设计",
+                        label: "01 / 框架总览",
                         title: "从人格特征到可解释行为",
                         caption: "人格特征进入社会化状态与奖励函数，再由 TD3 Agent 学习导航策略。",
                         alt: "P-CSim 人格驱动深度强化学习系统框架",
@@ -640,8 +641,8 @@ export const zh = {
             projectType: "项目类型",
             problemInsight: "问题与产品洞察",
             coreStrategy: "核心策略",
-            prototypeExperience: "原型体验",
-            validationTitle: "验证",
+            prototypeExperience: "权益路径原型",
+            validationTitle: "验证计划",
             overview: "项目概览",
             problem: "问题",
             strategy: "洞察与策略",

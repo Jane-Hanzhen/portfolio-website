@@ -567,6 +567,7 @@ export const en = {
                     "TD3 Agent",
                     "Behavior",
                 ],
+                solutionTitle: "Method & Experiment Pipeline",
                 systemTitle: "System & Model Design",
                 validation: [
                     {
@@ -594,7 +595,7 @@ export const en = {
                     "The value lies in turning personality from a static label into a dynamic factor in reinforcement-learning decisions. The evidence remains a controlled experiment and should not be framed as validated commercial value.",
                 visuals: [
                     {
-                        label: "01 / SYSTEM DESIGN",
+                        label: "01 / FRAMEWORK OVERVIEW",
                         title: "From personality traits to interpretable behavior",
                         caption:
                             "Personality enters the socialized state and reward function before the TD3 agent learns its navigation policy.",
@@ -771,8 +772,8 @@ export const en = {
             projectType: "Project type",
             problemInsight: "Problem & Product Insight",
             coreStrategy: "Core Strategy",
-            prototypeExperience: "Prototype Experience",
-            validationTitle: "Validation",
+            prototypeExperience: "Benefits Path Prototype",
+            validationTitle: "Validation Plan",
             overview: "Overview",
             problem: "Problem",
             strategy: "Insight & Strategy",
