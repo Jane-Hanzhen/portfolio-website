@@ -3,6 +3,7 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import { MediaPlaceholder } from "../components/MediaPlaceholder";
 import { ProjectMedia } from "../components/ProjectMedia";
 import { Reveal } from "../components/Reveal";
+import { UrbanInsightHybridPage } from "./UrbanInsightHybridPage";
 import { projectConfig, projectKeyBySlug, projectOrder } from "../projectConfig";
 import { projectAssets, type ProjectAsset } from "../projectAssets";
 import type { ProjectContent, ValidationType } from "../types";
@@ -151,6 +152,10 @@ export function ProjectPage() {
     return <QwenPortfolioPage project={project} config={config} assets={assets} next={next} nextSlug={nextConfig.slug} t={t} />;
   }
 
+  if (key === "urbaninsight") {
+    return <UrbanInsightHybridPage />;
+  }
+
   return (
     <main id="main-content" className={`case-study case-study--${key}${isRefinedCaseStudy ? " case-study--hybrid" : ""}`}>
       <section className="project-hero section-shell">
@@ -209,7 +214,7 @@ export function ProjectPage() {
             </article>
           ))}
         </div>
-        <VisualGroup assets={assets.solution} project={project} start={visualStarts.solution} captionBefore={key === "urbaninsight"} />
+        <VisualGroup assets={assets.solution} project={project} start={visualStarts.solution} />
         {!assets.solution?.length && key === "hospital" ? <p className="pending-note"><i aria-hidden="true" /> {t("caseStudy.mediaPending")}</p> : null}
       </CaseSection>
 
@@ -234,7 +239,7 @@ export function ProjectPage() {
             ))}
           </div>
         )}
-        <VisualGroup assets={assets.system} project={project} start={visualStarts.system} captionBefore={key === "urbaninsight"} />
+        <VisualGroup assets={assets.system} project={project} start={visualStarts.system} />
         {project.techStack?.length ? (
           <section className="tech-stack" aria-labelledby="tech-stack-title">
             <div className="tech-stack__heading">
