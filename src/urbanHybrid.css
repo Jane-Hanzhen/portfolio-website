@@ -16,9 +16,9 @@
 }
 
 .ui-hybrid .ui-wrap {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 0 40px;
+    width: min(100%, calc(var(--content) + var(--page-pad) * 2));
+    margin-inline: auto;
+    padding-inline: var(--page-pad);
 }
 
 .ui-hybrid .ui-mono {
@@ -597,10 +597,6 @@
 }
 
 @media (max-width: 900px) {
-    .ui-hybrid .ui-wrap {
-        padding: 0 24px;
-    }
-
     .ui-hybrid .ui-title-row {
         grid-template-columns: 1fr;
         gap: 24px;
