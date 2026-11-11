@@ -184,7 +184,7 @@ export const zh = {
                     {
                         type: "engineering",
                         label: "工程验证",
-                        value: "43 项后端自动化测试通过，Qwen / DeepSeek 链路已验证",
+                        value: "105 项后端自动化测试通过；12 题评测 127/127 引用可追溯（路由 12/12、拒答 2/2）",
                     },
                     { type: "engineering", label: "公开展示", value: "ModelScope Studio 国内可访问 Demo" },
                     {
@@ -210,29 +210,45 @@ export const zh = {
                         alt: "UrbanInsight AI 地图悬停区域名称与右侧面板同步预览",
                     },
                     {
-                        label: "02 / ANALYSIS ENGINE",
+                        label: "02 / ANALYZE",
                         title: "确定性评分引擎",
-                        caption: "Overall Score、排名、三个维度与贡献度均由 PCA–TOPSIS 计算；LLM 不重算排名。",
-                        alt: "UrbanInsight AI 综合评分、排名、雷达图与贡献度分析",
-                    },
-                    {
-                        label: "03 / AI INTERPRETATION",
-                        title: "基于结果的深度解读",
                         caption:
-                            "AI_MODE = live 时，Agent 通过只读工具调用获取已存储的分析结果，说明驱动因素、优势、短板与建议；分数与排名仍来自 PCA–TOPSIS。",
-                        alt: "UrbanInsight AI 深度解读页面",
+                            "Overall Score、区内排名、三个维度与贡献度均由 PCA–TOPSIS 计算并存储；LLM 只读取结果，不重算排名。",
+                        alt: "综合评分、区内排名与经济、社会、生态三个维度的得分",
                     },
                     {
-                        label: "04 / COMPARE",
+                        label: "03 / INDICATORS",
+                        title: "得分背后的信号",
+                        caption:
+                            "12 项指标按经济、社会、生态分组，各带数值、单位与一句语境说明；ⓘ 浮层写清“衡量内容”与“如何解读”，口径与引擎使用的字段一致。",
+                        alt: "12 项指标按经济、社会、生态分组，含数值、单位与语境说明",
+                    },
+                    {
+                        label: "04 / INTERPRET",
+                        title: "从得分到可执行的判断",
+                        caption:
+                            "「解读」页把存储的评分与指标组织成主要驱动因素，以及优势、短板、建议三栏，建议按优先级标注；文字由模型基于引擎结果生成，分数与排名仍来自 PCA–TOPSIS。",
+                        alt: "AI 深度解读：主要驱动因素与指标解读，以及优势、短板、建议三栏",
+                    },
+                    {
+                        label: "05 / COMPARE",
                         title: "跨行政区决策支持",
-                        caption: "City of London 与 Camden 的对比用于理解优势结构，而不是定义区域的绝对价值。",
-                        alt: "City of London 与 Camden 的结构化对比",
+                        caption:
+                            "在相同数据口径下比较两个行政区：先说明差距来自哪些维度，再给出各自的定位，用来理解优势结构，而不是定义区域的绝对价值。",
+                        alt: "地图与右侧对比结论同屏的跨行政区对比界面",
                     },
                     {
-                        label: "05 / DECISION-READY REPORT",
+                        label: "06 / ASK AI",
+                        title: "Ask AI：把分析结果变成可以追问的对象",
+                        caption:
+                            "分析完成后可就当前区域继续提问，也可以选另一个行政区发起比较。回答来自只读工具读取的已存储结果，并附可展开的 Sources——每条引用带编号、发布方与原文片段，可回到原文链接；证据不足时明确拒答。",
+                        alt: "展开的 Sources 引用列表，含编号、发布方、原文片段与打开原文链接",
+                    },
+                    {
+                        label: "07 / EXPORT",
                         title: "报告是产品输出的一部分",
-                        caption: "Executive Summary 汇总评分、排名、优势与风险。PDF 生成时不再调用模型。",
-                        alt: "UrbanInsight AI PDF 报告执行摘要",
+                        caption: "Executive Summary 汇总评分、排名、优势与风险；PDF 生成时不再调用模型。",
+                        alt: "UrbanInsight AI PDF 报告执行摘要页",
                     },
                     {
                         label: "AI BOUNDARY ",
@@ -240,6 +256,13 @@ export const zh = {
                         caption:
                             "PCA + TOPSIS 产生结构化分数、排名与贡献度；LLM Agent 通过只读工具调用获取这些结果，负责解释、比较、建议与决策叙事。",
                         alt: "UrbanInsight AI 确定性分析层与生成式解释层边界图",
+                    },
+                    {
+                        label: "EVALUATION",
+                        title: "把评测从文字变成证据",
+                        caption:
+                            "十二题 agentic RAG 评测报告由仓库内脚本生成：自动指标覆盖工具路由、Recall@5、引用有效性、拒答与延迟，回答事实正确性仍靠人工抽查。",
+                        alt: "十二题评测报告的自动指标页：路由 12/12、引用 127/127、拒答 2/2",
                     },
                 ],
             },

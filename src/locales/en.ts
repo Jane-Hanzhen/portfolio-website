@@ -204,7 +204,7 @@ export const en = {
                     {
                         type: "engineering",
                         label: "Engineering validation",
-                        value: "43 backend tests passed; Qwen and DeepSeek chains verified",
+                        value: "105 backend tests passed; the 12-question evaluation has 127/127 traceable citations (routing 12/12, refusal 2/2)",
                     },
                     {
                         type: "engineering",
@@ -235,32 +235,46 @@ export const en = {
                         alt: "UrbanInsight AI borough hover tooltip synchronized with the side-panel preview",
                     },
                     {
-                        label: "02 / ANALYSIS ENGINE",
+                        label: "02 / ANALYZE",
                         title: "A deterministic scoring engine",
                         caption:
-                            "PCA–TOPSIS produces the overall score, rank, three dimensions and contributions. The LLM does not recalculate the ranking.",
-                        alt: "UrbanInsight AI analysis with overall score, rank, radar chart and contribution breakdown",
+                            "PCA–TOPSIS produces the overall score, borough rank, three dimensions and contributions, and stores them. The LLM reads those results; it does not recalculate the ranking.",
+                        alt: "Overall score, borough rank and the economic, social and ecological dimension scores",
                     },
                     {
-                        label: "03 / AI INTERPRETATION",
-                        title: "Deep interpretation grounded in stored results",
+                        label: "03 / INDICATORS",
+                        title: "The signals behind the score",
                         caption:
-                            "With AI_MODE set to live, the agent retrieves persisted analysis results through read-only tool calls to explain drivers, strengths, weaknesses and recommendations; scores and ranks still come from PCA–TOPSIS.",
-                        alt: "UrbanInsight AI deep interpretation view",
+                            "Twelve indicators grouped under Economic, Social and Ecological, each with its value, unit and a one-line context note. The ⓘ popover states what the indicator measures and how to read it, using the same fields the engine scores.",
+                        alt: "Twelve indicators grouped by economic, social and ecological dimension with values and units",
                     },
                     {
-                        label: "04 / COMPARE",
+                        label: "04 / INTERPRET",
+                        title: "From scores to actionable judgement",
+                        caption:
+                            "The Interpretation tab organises the stored scores and indicators into main drivers, then strengths, weaknesses and prioritised recommendations. The wording is model-generated from engine output; scores and ranks still come from PCA–TOPSIS.",
+                        alt: "AI interpretation: main drivers plus strengths, weaknesses and recommendations",
+                    },
+                    {
+                        label: "05 / COMPARE",
                         title: "Cross-borough decision support",
                         caption:
-                            "The City of London and Camden comparison reveals different strength profiles; it does not define either borough’s absolute value.",
-                        alt: "Structured comparison between the City of London and Camden",
+                            "Two boroughs compared on identical data definitions: the answer first explains which dimensions create the gap, then positions each borough — to understand the shape of their strengths, not to declare an absolute value.",
+                        alt: "Full interface with the map and the side-by-side comparison conclusion",
                     },
                     {
-                        label: "05 / DECISION-READY REPORT",
+                        label: "06 / ASK AI",
+                        title: "Ask AI: results you can keep questioning",
+                        caption:
+                            "Once an analysis is done you can keep asking about the current borough, or pick another one and start a comparison. Answers come from persisted results read through read-only tools and carry an expandable Sources list — each citation shows an id, publisher and quoted passage with a link back to the original. When the evidence is insufficient, the agent refuses instead of guessing.",
+                        alt: "Expanded Sources list with citation ids, publisher, quoted passage and open-original link",
+                    },
+                    {
+                        label: "07 / EXPORT",
                         title: "The report is part of the product output",
                         caption:
                             "The executive summary consolidates score, rank, strengths and risks. PDF generation does not make another model call.",
-                        alt: "UrbanInsight AI PDF report executive summary",
+                        alt: "UrbanInsight AI PDF report executive summary page",
                     },
                     {
                         label: "AI BOUNDARY",
@@ -268,6 +282,13 @@ export const en = {
                         caption:
                             "PCA + TOPSIS produces scores, ranking and contributions; an LLM Agent retrieves them through read-only tool calls and handles explanation, comparison, recommendations and decision-ready narrative.",
                         alt: "Boundary between UrbanInsight deterministic analysis and generative interpretation layers",
+                    },
+                    {
+                        label: "EVALUATION",
+                        title: "Evaluation as evidence, not adjectives",
+                        caption:
+                            "The twelve-question agentic RAG report is generated by a script in the repository and shown here in its original Chinese UI: automated metrics cover tool routing, Recall@5, citation validity, refusal and latency, while factual correctness is still checked by hand.",
+                        alt: "Automated metrics page of the twelve-question evaluation report: routing 12/12, citations 127/127, refusal 2/2",
                     },
                 ],
             },

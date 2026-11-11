@@ -141,7 +141,7 @@ export function ProjectPage() {
   const isRefinedCaseStudy = key === "drl" || key === "hospital";
   const isChineseRefinedCaseStudy = isRefinedCaseStudy && i18n.resolvedLanguage?.startsWith("zh");
   const visualStarts = {
-    urbaninsight: { problem: 0, strategy: 0, solution: 1, system: 6 },
+    urbaninsight: { problem: 0, strategy: 0, solution: 1, system: 8 },
     qwen: { problem: 1, strategy: 2, solution: 3, system: 0 },
     drl: { problem: 0, strategy: 0, solution: 1, system: 0 },
     hospital: { problem: 0, strategy: 0, solution: 1, system: 0 },
