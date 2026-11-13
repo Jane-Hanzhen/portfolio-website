@@ -94,7 +94,7 @@ export const en = {
                 body1: "With an interdisciplinary background in GIS and computing, I focus on turning data analytics, machine learning, and complex systems into product experiences that people can understand and use.",
                 body2: "My work spans AI product strategy, full-stack prototyping, spatial analytics, and deep reinforcement learning, allowing me to approach product design through user needs, system logic, and technical implementation.",
                 eventLabel: "EARLIER / EVENT PLANNING",
-                event: "I independently planned a 100-person film screening, from community recruitment and ticket conversion to on-site execution. It taught me early on that a good plan has to hold up not only on paper, but under real constraints of people, time and budget.",
+                event: "I helped plan a 100-person film screening, from community recruitment and ticket conversion to on-site execution. It taught me early on that a good plan has to hold up not only on paper, but under real constraints of people, time and budget.",
                 eventEmphasis: "real constraints of people, time and budget",
                 eventStats: [
                     { value: "213 → 100", label: "Community → tickets" },
